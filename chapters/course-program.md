@@ -1,5 +1,3 @@
-[Исходная версия DOCX](../Kubernetes_программа_24_тома.docx)
-
 # Kubernetes: подробный учебник
 
 24 тома: от объектов API до CNI, Gateway API и production-эксплуатации
