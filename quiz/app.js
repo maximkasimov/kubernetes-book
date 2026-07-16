@@ -16,10 +16,7 @@
       label.innerHTML = '<input type="radio" name="q' + n + '" value="' + i + '"> ' + option;
       box.appendChild(label);
     });
-    const note = document.createElement('small');
-    note.className = 'explanation'; note.hidden = true;
-    note.textContent = 'Правильный ответ: ' + q.options[q.answer];
-    box.appendChild(note); quiz.appendChild(box);
+    quiz.appendChild(box);
   });
   document.getElementById('check').addEventListener('click', () => {
     let score = 0;
@@ -28,7 +25,6 @@
       box.querySelectorAll('label').forEach((label, i) => { label.classList.remove('correct', 'incorrect'); if (i === answer) label.classList.add('correct'); });
       if (picked && Number(picked.value) === answer) score++;
       else if (picked) picked.parentElement.classList.add('incorrect');
-      box.querySelector('.explanation').hidden = false;
     });
     const result = document.getElementById('result'); result.className = 'result visible';
     result.textContent = 'Результат: ' + score + ' из ' + data.questions.length + '. ' + (score === data.questions.length ? 'Отлично — все ответы верны.' : 'Посмотрите подсвеченные ответы и вернитесь к нужным разделам главы.');
