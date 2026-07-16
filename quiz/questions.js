@@ -1383,112 +1383,112 @@ window.QUIZ_DATA = {
     "title": "Kubernetes: подробный учебный материал — Service и внутренний доступ: стабильная точка для Pod",
     "questions": [
       {
-        "question": "Какую роль выполняет «Почему не Pod IP»?",
+        "question": "Почему нельзя использовать Pod IP как постоянный адрес приложения?",
         "options": [
-          "port — порт Service, targetPort — порт контейнера/endpoint, nodePort — внешний порт node.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Pod эфемерен: controller пересоздаёт его, IP меняется, node может стать недоступной."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Как работает «Почему не Pod IP — дополнительный аспект» в этой ситуации?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "port — порт Service, targetPort — порт контейнера/endpoint, nodePort — внешний порт node.",
-          "EndpointSlice масштабируемо представляет backends и их readiness.",
-          "ClusterIP доступен в кластере.",
-          "sessionAffinity ClientIP даёт простое закрепление, но не заменяет корректную сессию приложения и может не работать как ожидается через NAT/proxy."
+          "Pod может быть пересоздан и получить другой IP.",
+          "Pod IP не маршрутизируется внутри кластера.",
+          "Pod не имеет сети.",
+          "Pod всегда равен ClusterIP.",
+          "Pod IP доступен только kubelet."
         ],
         "answer": 0
       },
       {
-        "question": "Какое свойство «Типы Service» технически верно?",
+        "question": "Что даёт ClusterIP Service?",
         "options": [
-          "EndpointSlice масштабируемо представляет backends и их readiness.",
-          "ClusterIP доступен в кластере.",
-          "sessionAffinity ClientIP даёт простое закрепление, но не заменяет корректную сессию приложения и может не работать как ожидается через NAT/proxy.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 1
-      },
-      {
-        "question": "Какой результат ожидается от «Типы Service — дополнительный аспект»?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "ClusterIP доступен в кластере.",
-          "sessionAffinity ClientIP даёт простое закрепление, но не заменяет корректную сессию приложения и может не работать как ожидается через NAT/proxy.",
-          "EndpointSlice масштабируемо представляет backends и их readiness.",
-          "port — порт Service, targetPort — порт контейнера/endpoint, nodePort — внешний порт node."
+          "Стабильный виртуальный адрес для доступа к набору backend Pod внутри кластера.",
+          "Постоянный IP каждого Pod.",
+          "Внешний публичный TLS listener.",
+          "Хранилище данных.",
+          "RBAC-доступ к API."
         ],
         "answer": 0
       },
       {
-        "question": "Какой технический принцип верен для «Порты и именование»?",
+        "question": "Что проверять, если Service создан, но endpoints пусты?",
         "options": [
-          "ClusterIP доступен в кластере.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "EndpointSlice масштабируемо представляет backends и их readiness.",
-          "port — порт Service, targetPort — порт контейнера/endpoint, nodePort — внешний порт node.",
-          "Pod эфемерен: controller пересоздаёт его, IP меняется, node может стать недоступной."
-        ],
-        "answer": 3
-      },
-      {
-        "question": "Какое утверждение о «Порты и именование — дополнительный аспект» корректно?",
-        "options": [
-          "sessionAffinity ClientIP даёт простое закрепление, но не заменяет корректную сессию приложения и может не работать как ожидается через NAT/proxy.",
-          "Pod эфемерен: controller пересоздаёт его, IP меняется, node может стать недоступной.",
-          "port — порт Service, targetPort — порт контейнера/endpoint, nodePort — внешний порт node.",
-          "EndpointSlice масштабируемо представляет backends и их readiness.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Что необходимо учитывать при «EndpointSlice и готовность»?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "EndpointSlice масштабируемо представляет backends и их readiness.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 2
-      },
-      {
-        "question": "Какой механизм лежит в основе «EndpointSlice и готовность — дополнительный аспект»?",
-        "options": [
-          "EndpointSlice масштабируемо представляет backends и их readiness.",
-          "port — порт Service, targetPort — порт контейнера/endpoint, nodePort — внешний порт node.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "ClusterIP доступен в кластере.",
-          "Pod эфемерен: controller пересоздаёт его, IP меняется, node может стать недоступной."
-        ],
-        "answer": 2
-      },
-      {
-        "question": "Какой технический принцип верен для «Session и source IP»?",
-        "options": [
-          "sessionAffinity ClientIP даёт простое закрепление, но не заменяет корректную сессию приложения и может не работать как ожидается через NAT/proxy.",
-          "port — порт Service, targetPort — порт контейнера/endpoint, nodePort — внешний порт node.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Pod эфемерен: controller пересоздаёт его, IP меняется, node может стать недоступной."
+          "Selector Service, labels Pod и readiness подходящих Pod.",
+          "Только версию kubectl.",
+          "Только UID Service.",
+          "Только ConfigMap.",
+          "Только CNI image."
         ],
         "answer": 0
       },
       {
-        "question": "Какое утверждение о «Session и source IP — дополнительный аспект» корректно?",
+        "question": "Чем port отличается от targetPort Service?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "ClusterIP доступен в кластере.",
-          "sessionAffinity ClientIP даёт простое закрепление, но не заменяет корректную сессию приложения и может не работать как ожидается через NAT/proxy.",
-          "Pod эфемерен: controller пересоздаёт его, IP меняется, node может стать недоступной.",
-          "port — порт Service, targetPort — порт контейнера/endpoint, nodePort — внешний порт node."
+          "port — порт Service, targetPort — порт backend контейнера или endpoint.",
+          "port всегда внешний NodePort.",
+          "targetPort задаёт IP Pod.",
+          "между ними нет различия.",
+          "targetPort задаёт CPU limit."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Когда нужен headless Service?",
+        "options": [
+          "Когда клиенту требуются DNS-записи отдельных endpoint, например StatefulSet.",
+          "Когда нужен внешний LoadBalancer.",
+          "Когда нельзя использовать DNS.",
+          "Когда нужно запретить endpoints.",
+          "Когда нужен PVC."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Что делает NodePort?",
+        "options": [
+          "Открывает выделенный порт на node и направляет трафик к Service.",
+          "Назначает Pod IP.",
+          "Создаёт GatewayClass.",
+          "Шифрует Secret.",
+          "Хранит логи."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "От чего зависит LoadBalancer Service?",
+        "options": [
+          "От контроллера или сетевой интеграции, которая создаёт внешний балансировщик.",
+          "Только от YAML Service.",
+          "Только от kubelet.",
+          "Только от CoreDNS.",
+          "Только от PVC."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Почему EndpointSlice важнее одного факта наличия Service?",
+        "options": [
+          "Он показывает реальные backend, порты и readiness, к которым направится трафик.",
+          "Он хранит Git history.",
+          "Он заменяет NetworkPolicy.",
+          "Он задаёт DNS zone.",
+          "Он создаёт image."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Как externalTrafficPolicy влияет на внешний трафик?",
+        "options": [
+          "Влияет на сохранение source IP и способ распределения через nodes.",
+          "Меняет labels Pod.",
+          "Удаляет readiness probe.",
+          "Создаёт PVC.",
+          "Выдаёт RBAC."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Что проверять при connection refused через Service?",
+        "options": [
+          "targetPort, порт приложения, EndpointSlice и readiness backend.",
+          "Только имя namespace.",
+          "Только etcd snapshot.",
+          "Только число Deployment.",
+          "Только cron schedule."
         ],
         "answer": 0
       }
@@ -1498,114 +1498,114 @@ window.QUIZ_DATA = {
     "title": "Kubernetes: подробный учебный материал — NetworkPolicy в production: модель угроз, rollout и диагностика",
     "questions": [
       {
-        "question": "Какой технический принцип верен для «Граница и модель угроз»?",
+        "question": "Что NetworkPolicy не заменяет?",
         "options": [
-          "NetworkPolicy ограничивает сетевые связи Pods, но не заменяет RBAC, TLS, identity приложения, image security или secrets.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Предпочитайте labels и namespace selectors для внутрикластерных сервисов, когда они отражают роль.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "RBAC, TLS, безопасность образов и защиту Secret.",
+          "Она заменяет все CNI.",
+          "Она заменяет Pod.",
+          "Она заменяет Deployment.",
+          "Она заменяет etcd."
         ],
         "answer": 0
       },
       {
-        "question": "Какое утверждение о «Граница и модель угроз — дополнительный аспект» корректно?",
+        "question": "Что означает default deny ingress?",
         "options": [
-          "NetworkPolicy ограничивает сетевые связи Pods, но не заменяет RBAC, TLS, identity приложения, image security или secrets.",
-          "Default deny выбирает все Pods namespace и включает PolicyTypes Ingress/Egress без разрешений.",
-          "Тест должен запускаться от того же ServiceAccount/namespace и идти из Pod, где реально возникает поток.",
-          "При массовом deny первым делом ограничьте blast radius и верните проверенный набор предыдущих манифестов.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Что необходимо учитывать при «Default deny»?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Default deny выбирает все Pods namespace и включает PolicyTypes Ingress/Egress без разрешений.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 3
-      },
-      {
-        "question": "Какой механизм лежит в основе «Default deny — дополнительный аспект»?",
-        "options": [
-          "Тест должен запускаться от того же ServiceAccount/namespace и идти из Pod, где реально возникает поток.",
-          "При массовом deny первым делом ограничьте blast radius и верните проверенный набор предыдущих манифестов.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Default deny выбирает все Pods namespace и включает PolicyTypes Ingress/Egress без разрешений.",
-          "NetworkPolicy ограничивает сетевые связи Pods, но не заменяет RBAC, TLS, identity приложения, image security или secrets."
-        ],
-        "answer": 2
-      },
-      {
-        "question": "Какой технический принцип верен для «Идентификация зависимостей»?",
-        "options": [
-          "Предпочитайте labels и namespace selectors для внутрикластерных сервисов, когда они отражают роль.",
-          "NetworkPolicy ограничивает сетевые связи Pods, но не заменяет RBAC, TLS, identity приложения, image security или secrets.",
-          "Тест должен запускаться от того же ServiceAccount/namespace и идти из Pod, где реально возникает поток.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Для выбранных Pod ingress разрешён только правилами, которые явно совпали.",
+          "Pod удаляется.",
+          "Service исчезает.",
+          "Pod теряет IP.",
+          "CNI отключается."
         ],
         "answer": 0
       },
       {
-        "question": "Какое утверждение о «Идентификация зависимостей — дополнительный аспект» корректно?",
+        "question": "Почему default deny egress внедряют поэтапно?",
         "options": [
-          "При массовом deny первым делом ограничьте blast radius и верните проверенный набор предыдущих манифестов.",
-          "Предпочитайте labels и namespace selectors для внутрикластерных сервисов, когда они отражают роль.",
-          "Тест должен запускаться от того же ServiceAccount/namespace и идти из Pod, где реально возникает поток.",
-          "NetworkPolicy ограничивает сетевые связи Pods, но не заменяет RBAC, TLS, identity приложения, image security или secrets.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Что необходимо учитывать при «Проверка эффекта»?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Тест должен запускаться от того же ServiceAccount/namespace и идти из Pod, где реально возникает поток.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 3
-      },
-      {
-        "question": "Какой механизм лежит в основе «Проверка эффекта — дополнительный аспект»?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "При массовом deny первым делом ограничьте blast radius и верните проверенный набор предыдущих манифестов.",
-          "Тест должен запускаться от того же ServiceAccount/namespace и идти из Pod, где реально возникает поток.",
-          "Предпочитайте labels и namespace selectors для внутрикластерных сервисов, когда они отражают роль.",
-          "Default deny выбирает все Pods namespace и включает PolicyTypes Ingress/Egress без разрешений."
+          "Нужно заранее выявить DNS и обязательные зависимости, иначе легко сломать приложение.",
+          "Egress policy не влияет на сеть.",
+          "Policy нельзя хранить в Git.",
+          "Pod не имеет зависимостей.",
+          "DNS не использует сеть."
         ],
         "answer": 0
       },
       {
-        "question": "Какой технический принцип верен для «Инциденты и откат»?",
+        "question": "Какой тест нужен для NetworkPolicy?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "При массовом deny первым делом ограничьте blast radius и верните проверенный набор предыдущих манифестов.",
-          "Default deny выбирает все Pods namespace и включает PolicyTypes Ingress/Egress без разрешений.",
-          "NetworkPolicy ограничивает сетевые связи Pods, но не заменяет RBAC, TLS, identity приложения, image security или secrets.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Позитивный тест разрешённого потока и негативный тест запрещённого потока.",
+          "Только kubectl get policy.",
+          "Только ping node.",
+          "Только число Pod.",
+          "Только запуск HPA."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
-        "question": "Какое утверждение о «Инциденты и откат — дополнительный аспект» корректно?",
+        "question": "Почему тест должен идти из Pod источника?",
         "options": [
-          "NetworkPolicy ограничивает сетевые связи Pods, но не заменяет RBAC, TLS, identity приложения, image security или secrets.",
-          "Предпочитайте labels и namespace selectors для внутрикластерных сервисов, когда они отражают роль.",
-          "Default deny выбирает все Pods namespace и включает PolicyTypes Ingress/Egress без разрешений.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "При массовом deny первым делом ограничьте blast radius и верните проверенный набор предыдущих манифестов."
+          "Только так проверяются реальные namespace, labels, source IP и policy path.",
+          "Node не может отправить пакеты.",
+          "Pod не имеет DNS.",
+          "Service не имеет портов.",
+          "CNI не работает с Pod."
         ],
-        "answer": 3
+        "answer": 0
+      },
+      {
+        "question": "Почему 0.0.0.0/0 опасен в egress rule?",
+        "options": [
+          "Открывает весь внешний трафик и маскирует неописанные зависимости.",
+          "Запрещён Kubernetes API.",
+          "Удаляет routes.",
+          "Создаёт слишком много Pod.",
+          "Меняет StorageClass."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Что лучше использовать для внутрикластерного backend?",
+        "options": [
+          "Стабильный selector по роли Pod/namespace, если он отражает реальную границу.",
+          "Уникальный request_id label.",
+          "IP случайного Pod.",
+          "Timestamp запуска.",
+          "Имя container image."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Что делать при массовом deny после policy rollout?",
+        "options": [
+          "Ограничить blast radius и вернуть проверенный предыдущий набор правил.",
+          "Открыть весь egress навсегда.",
+          "Удалить CNI.",
+          "Удалить все namespace.",
+          "Очистить etcd."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Почему policy должны проходить review?",
+        "options": [
+          "Это код сетевой безопасности, который может открыть или перекрыть production-потоки.",
+          "Policy не меняют трафик.",
+          "Review нужен только PVC.",
+          "Policy не поддерживают Git.",
+          "Review создаёт Pod."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Что требуется после временного широкого разрешения?",
+        "options": [
+          "Зафиксировать отсутствующий поток и заменить обход точным правилом.",
+          "Оставить allow all.",
+          "Удалить Service.",
+          "Перезапустить etcd.",
+          "Увеличить replicas."
+        ],
+        "answer": 0
       }
     ]
   },
@@ -1613,114 +1613,114 @@ window.QUIZ_DATA = {
     "title": "Kubernetes: подробный учебный материал — Ingress: традиционная модель HTTP-маршрутизации и её границы",
     "questions": [
       {
-        "question": "Какую роль выполняет «Ingress и Ingress Controller»?",
+        "question": "Что делает объект Ingress сам по себе?",
         "options": [
-          "Ingress — API-объект для HTTP/HTTPS маршрутов host/path к Service.",
-          "Не смешивайте public и internal маршруты в одном классе без явной модели.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "tls.secretName обычно ссылается на Secret того же namespace, содержащий certificate/key.",
-          "Ingress исторически фокусируется на HTTP и оставляет расширенные возможности аннотациям конкретного controller: retries, canary, header matching, traffic splitting, TCP/UDP."
+          "Описывает HTTP(S)-маршруты, но не проксирует трафик без Ingress Controller.",
+          "Запускает reverse proxy в каждом Pod.",
+          "Создаёт Service endpoints.",
+          "Выдаёт Pod IP.",
+          "Хранит TLS key в etcd."
         ],
         "answer": 0
       },
       {
-        "question": "Как работает «Ingress и Ingress Controller — дополнительный аспект» в этой ситуации?",
+        "question": "Для чего нужен IngressClass?",
         "options": [
-          "Клиент приходит на внешний LoadBalancer/NodePort controller, TLS может завершиться там, controller выбирает правило host/path и отправляет запрос в Service, затем в endpoint Pod.",
-          "Ingress исторически фокусируется на HTTP и оставляет расширенные возможности аннотациям конкретного controller: retries, canary, header matching, traffic splitting, TCP/UDP.",
-          "Не смешивайте public и internal маршруты в одном классе без явной модели.",
-          "Ingress — API-объект для HTTP/HTTPS маршрутов host/path к Service.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Что необходимо учитывать при «Путь запроса»?",
-        "options": [
-          "Клиент приходит на внешний LoadBalancer/NodePort controller, TLS может завершиться там, controller выбирает правило host/path и отправляет запрос в Service, затем в endpoint Pod.",
-          "Ingress — API-объект для HTTP/HTTPS маршрутов host/path к Service.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "tls.secretName обычно ссылается на Secret того же namespace, содержащий certificate/key.",
-          "Ingress исторически фокусируется на HTTP и оставляет расширенные возможности аннотациям конкретного controller: retries, canary, header matching, traffic splitting, TCP/UDP."
+          "Связывает Ingress с конкретной реализацией контроллера.",
+          "Выбирает node Pod.",
+          "Создаёт Secret.",
+          "Управляет PVC.",
+          "Хранит метрики."
         ],
         "answer": 0
       },
       {
-        "question": "Какой механизм лежит в основе «Путь запроса — дополнительный аспект»?",
+        "question": "Каков путь запроса через Ingress?",
         "options": [
-          "tls.secretName обычно ссылается на Secret того же namespace, содержащий certificate/key.",
-          "Клиент приходит на внешний LoadBalancer/NodePort controller, TLS может завершиться там, controller выбирает правило host/path и отправляет запрос в Service, затем в endpoint Pod.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Не смешивайте public и internal маршруты в одном классе без явной модели.",
-          "Ingress исторически фокусируется на HTTP и оставляет расширенные возможности аннотациям конкретного controller: retries, canary, header matching, traffic splitting, TCP/UDP."
+          "Клиент, внешний балансировщик/контроллер, правило host/path, Service, endpoint Pod.",
+          "Клиент, etcd, PVC, Pod.",
+          "Клиент, scheduler, Secret.",
+          "Клиент, CNI IPAM, ConfigMap.",
+          "Клиент, ReplicaSet, StorageClass."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
-        "question": "Какое правило безопасности верно для «TLS»?",
+        "question": "Почему существование TLS Secret не доказывает работу HTTPS?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "tls.secretName обычно ссылается на Secret того же namespace, содержащий certificate/key."
+          "Controller должен прочитать Secret и применить его к правильному listener/hostname.",
+          "Secret всегда сам открывает порт.",
+          "TLS не зависит от hostname.",
+          "Secret создаёт Pod.",
+          "Secret заменяет IngressClass."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какое ограничение необходимо учитывать при «TLS — дополнительный аспект»?",
+        "question": "Почему annotations Ingress ограничивают переносимость?",
         "options": [
-          "tls.secretName обычно ссылается на Secret того же namespace, содержащий certificate/key.",
-          "Ingress — API-объект для HTTP/HTTPS маршрутов host/path к Service.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Клиент приходит на внешний LoadBalancer/NodePort controller, TLS может завершиться там, controller выбирает правило host/path и отправляет запрос в Service, затем в endpoint Pod.",
-          "Не смешивайте public и internal маршруты в одном классе без явной модели."
+          "Их смысл и поддержка зависят от конкретного Ingress Controller.",
+          "Annotations запрещены YAML.",
+          "Annotations не хранятся API.",
+          "Annotations заменяют Service.",
+          "Annotations работают только с PVC."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
-        "question": "Что необходимо учитывать при «Ограничения API»?",
+        "question": "Почему Ingress называют frozen API?",
         "options": [
-          "Не смешивайте public и internal маршруты в одном классе без явной модели.",
-          "Клиент приходит на внешний LoadBalancer/NodePort controller, TLS может завершиться там, controller выбирает правило host/path и отправляет запрос в Service, затем в endpoint Pod.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Ingress исторически фокусируется на HTTP и оставляет расширенные возможности аннотациям конкретного controller: retries, canary, header matching, traffic splitting, TCP/UDP.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Новые возможности маршрутизации развиваются прежде всего в Gateway API.",
+          "Ingress удалён из Kubernetes.",
+          "Ingress не поддерживает HTTP.",
+          "Ingress не имеет API.",
+          "Ingress работает только с DNS."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
-        "question": "Какой механизм лежит в основе «Ограничения API — дополнительный аспект»?",
+        "question": "Что проверять при 404 от Ingress?",
         "options": [
-          "Ingress исторически фокусируется на HTTP и оставляет расширенные возможности аннотациям конкретного controller: retries, canary, header matching, traffic splitting, TCP/UDP.",
-          "Ingress — API-объект для HTTP/HTTPS маршрутов host/path к Service.",
-          "Не смешивайте public и internal маршруты в одном классе без явной модели.",
-          "Клиент приходит на внешний LoadBalancer/NodePort controller, TLS может завершиться там, controller выбирает правило host/path и отправляет запрос в Service, затем в endpoint Pod.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "IngressClass, hostname/path rule, controller и маршрут до Service.",
+          "Только memory limit Pod.",
+          "Только UID Secret.",
+          "Только PV reclaimPolicy.",
+          "Только CronJob."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какое правило безопасности верно для «Безопасная эксплуатация»?",
+        "question": "Что проверять при 502 от Ingress?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Ingress исторически фокусируется на HTTP и оставляет расширенные возможности аннотациям конкретного controller: retries, canary, header matching, traffic splitting, TCP/UDP.",
-          "tls.secretName обычно ссылается на Secret того же namespace, содержащий certificate/key.",
-          "Не смешивайте public и internal маршруты в одном классе без явной модели."
+          "Service, EndpointSlice, readiness backend и сетевой путь controller к Pod.",
+          "Только Git branch.",
+          "Только annotation автора.",
+          "Только namespace UID.",
+          "Только volumeMode."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какое ограничение необходимо учитывать при «Безопасная эксплуатация — дополнительный аспект»?",
+        "question": "Почему edge controller требует отдельного capacity planning?",
         "options": [
-          "Ingress — API-объект для HTTP/HTTPS маршрутов host/path к Service.",
-          "Не смешивайте public и internal маршруты в одном классе без явной модели.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Клиент приходит на внешний LoadBalancer/NodePort controller, TLS может завершиться там, controller выбирает правило host/path и отправляет запрос в Service, затем в endpoint Pod.",
-          "tls.secretName обычно ссылается на Secret того же namespace, содержащий certificate/key."
+          "Он обслуживает трафик многих команд и становится shared точкой насыщения.",
+          "Он не принимает трафик.",
+          "Он не имеет Pod.",
+          "Он заменяет API server.",
+          "Он не использует CPU."
         ],
-        "answer": 2
+        "answer": 0
+      },
+      {
+        "question": "Зачем ограничивать допустимые annotations admission policy?",
+        "options": [
+          "Чтобы tenant не включил опасную или неподдерживаемую настройку edge.",
+          "Чтобы удалить DNS.",
+          "Чтобы отключить RBAC.",
+          "Чтобы создать PVC.",
+          "Чтобы увеличить MTU."
+        ],
+        "answer": 0
       }
     ]
   },
@@ -1728,114 +1728,114 @@ window.QUIZ_DATA = {
     "title": "Kubernetes: подробный учебный материал — Gateway API: современная модель ролей, классов и маршрутов",
     "questions": [
       {
-        "question": "Какую роль выполняет «Почему Gateway API»?",
+        "question": "Какую роль выполняет GatewayClass?",
         "options": [
-          "Не мигрируйте механически аннотации.",
-          "GatewayClass описывает класс реализации, управляемый инфраструктурной командой.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Gateway API развивает модель Ingress: разделяет владельца инфраструктуры и владельца маршрута, стандартизирует HTTP, TLS, TCP, UDP и gRPC маршрутизацию, а также статус программирования.",
-          "Gateway API активно использует conditions Accepted, Programmed, ResolvedRefs и другие статусы."
-        ],
-        "answer": 3
-      },
-      {
-        "question": "Как работает «Почему Gateway API — дополнительный аспект» в этой ситуации?",
-        "options": [
-          "GatewayClass описывает класс реализации, управляемый инфраструктурной командой.",
-          "Не мигрируйте механически аннотации.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "HTTPRoute, GRPCRoute, TCPRoute, TLSRoute и UDPRoute описывают правила направления.",
-          "Gateway API развивает модель Ingress: разделяет владельца инфраструктуры и владельца маршрута, стандартизирует HTTP, TLS, TCP, UDP и gRPC маршрутизацию, а также статус программирования."
-        ],
-        "answer": 2
-      },
-      {
-        "question": "Какое свойство «GatewayClass и Gateway» технически верно?",
-        "options": [
-          "HTTPRoute, GRPCRoute, TCPRoute, TLSRoute и UDPRoute описывают правила направления.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Gateway API развивает модель Ingress: разделяет владельца инфраструктуры и владельца маршрута, стандартизирует HTTP, TLS, TCP, UDP и gRPC маршрутизацию, а также статус программирования.",
-          "GatewayClass описывает класс реализации, управляемый инфраструктурной командой.",
-          "Не мигрируйте механически аннотации."
-        ],
-        "answer": 3
-      },
-      {
-        "question": "Какой результат ожидается от «GatewayClass и Gateway — дополнительный аспект»?",
-        "options": [
-          "Не мигрируйте механически аннотации.",
-          "HTTPRoute, GRPCRoute, TCPRoute, TLSRoute и UDPRoute описывают правила направления.",
-          "Gateway API активно использует conditions Accepted, Programmed, ResolvedRefs и другие статусы.",
-          "GatewayClass описывает класс реализации, управляемый инфраструктурной командой.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Какой технический принцип верен для «Routes и attachment»?",
-        "options": [
-          "Gateway API активно использует conditions Accepted, Programmed, ResolvedRefs и другие статусы.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "HTTPRoute, GRPCRoute, TCPRoute, TLSRoute и UDPRoute описывают правила направления.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 3
-      },
-      {
-        "question": "Какое утверждение о «Routes и attachment — дополнительный аспект» корректно?",
-        "options": [
-          "Не мигрируйте механически аннотации.",
-          "HTTPRoute, GRPCRoute, TCPRoute, TLSRoute и UDPRoute описывают правила направления.",
-          "GatewayClass описывает класс реализации, управляемый инфраструктурной командой.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Gateway API развивает модель Ingress: разделяет владельца инфраструктуры и владельца маршрута, стандартизирует HTTP, TLS, TCP, UDP и gRPC маршрутизацию, а также статус программирования."
-        ],
-        "answer": 3
-      },
-      {
-        "question": "Что необходимо учитывать при «Статус как контракт»?",
-        "options": [
-          "Gateway API активно использует conditions Accepted, Programmed, ResolvedRefs и другие статусы.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Не мигрируйте механически аннотации.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Gateway API развивает модель Ingress: разделяет владельца инфраструктуры и владельца маршрута, стандартизирует HTTP, TLS, TCP, UDP и gRPC маршрутизацию, а также статус программирования."
+          "Определяет класс реализации Gateway, которым обычно управляет platform team.",
+          "Описывает один HTTP path приложения.",
+          "Создаёт Pod IP.",
+          "Хранит Secret.",
+          "Выбирает StorageClass."
         ],
         "answer": 0
       },
       {
-        "question": "Какой механизм лежит в основе «Статус как контракт — дополнительный аспект»?",
+        "question": "Что описывает Gateway?",
         "options": [
-          "Gateway API развивает модель Ingress: разделяет владельца инфраструктуры и владельца маршрута, стандартизирует HTTP, TLS, TCP, UDP и gRPC маршрутизацию, а также статус программирования.",
-          "GatewayClass описывает класс реализации, управляемый инфраструктурной командой.",
-          "HTTPRoute, GRPCRoute, TCPRoute, TLSRoute и UDPRoute описывают правила направления.",
-          "Gateway API активно использует conditions Accepted, Programmed, ResolvedRefs и другие статусы.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Конкретную точку входа и listeners с портами, протоколами, TLS и правилами attachment.",
+          "Отдельный контейнер приложения.",
+          "Только DNS-запись Pod.",
+          "Только NetworkPolicy.",
+          "Только PVC."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какую роль выполняет «Переход от Ingress»?",
+        "question": "Что описывает HTTPRoute?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Не мигрируйте механически аннотации.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "GatewayClass описывает класс реализации, управляемый инфраструктурной командой."
+          "Правила L7-маршрутизации к backend через Gateway.",
+          "Схему etcd backup.",
+          "Выбор node scheduler.",
+          "Выделение IPAM.",
+          "Ротацию Secret."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
-        "question": "Как работает «Переход от Ingress — дополнительный аспект» в этой ситуации?",
+        "question": "Зачем listener allowedRoutes?",
         "options": [
-          "Gateway API активно использует conditions Accepted, Programmed, ResolvedRefs и другие статусы.",
-          "GatewayClass описывает класс реализации, управляемый инфраструктурной командой.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Gateway API развивает модель Ingress: разделяет владельца инфраструктуры и владельца маршрута, стандартизирует HTTP, TLS, TCP, UDP и gRPC маршрутизацию, а также статус программирования.",
-          "Не мигрируйте механически аннотации."
+          "Ограничивает, какие Route и из каких namespace могут прикрепляться к listener.",
+          "Открывает весь egress.",
+          "Создаёт endpoint Pod.",
+          "Шифрует volume.",
+          "Удаляет GatewayClass."
         ],
-        "answer": 2
+        "answer": 0
+      },
+      {
+        "question": "Что означает Route condition Accepted?",
+        "options": [
+          "Реализация приняла объект маршрута как допустимый.",
+          "Dataplane обязательно уже доступен клиенту.",
+          "TLS сертификат истёк.",
+          "Pod получил IP.",
+          "PVC смонтирован."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Что означает Programmed?",
+        "options": [
+          "Контроллер сообщает, что dataplane был настроен в смысле своей реализации.",
+          "ServiceAccount получил cluster-admin.",
+          "Pod удалён.",
+          "CNI отключён.",
+          "Backup завершён."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Зачем проверять ResolvedRefs?",
+        "options": [
+          "Чтобы убедиться, что backend и другие ссылки разрешены и существуют.",
+          "Чтобы измерить CPU node.",
+          "Чтобы выбрать ImagePullPolicy.",
+          "Чтобы создать namespace.",
+          "Чтобы прочитать логи."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Чем Gateway API улучшает разделение ролей?",
+        "options": [
+          "Платформа владеет edge/listener, а приложение — разрешённым Route.",
+          "Все команды получают cluster-admin.",
+          "Route создаёт node.",
+          "Gateway заменяет Service.",
+          "Pod перестают использовать labels."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Почему нельзя переносить Ingress annotations механически?",
+        "options": [
+          "Часть настроек vendor-specific и должна быть сопоставлена со стандартом или policy реализации.",
+          "Gateway API не поддерживает HTTP.",
+          "Annotations нельзя читать.",
+          "Ingress не имеет routes.",
+          "CNI блокирует YAML."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Как безопасно мигрировать host с Ingress?",
+        "options": [
+          "Сначала проверить параллельный Gateway-путь и поведение, затем контролируемо переключить DNS/трафик.",
+          "Сразу удалить Ingress и Secret.",
+          "Удалить все Service.",
+          "Отключить CNI.",
+          "Пересоздать etcd."
+        ],
+        "answer": 0
       }
     ]
   },
@@ -1843,114 +1843,114 @@ window.QUIZ_DATA = {
     "title": "Kubernetes: подробный учебный материал — Gateway API: HTTP-маршрутизация, TLS и политики",
     "questions": [
       {
-        "question": "Какой технический принцип верен для «HTTPRoute»?",
+        "question": "Что может сопоставлять HTTPRoute?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "ReferenceGrant позволяет владельцу целевого namespace явно разрешить ссылку от другого namespace на Service/Secret/другой ресурс.",
-          "Проверяйте DNS, SNI, сертификат/цепочку, listener status, HTTPRoute Accepted/Programmed, Service endpoints и ответ backend.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "HTTPRoute сопоставляет hostnames и matches: path, headers, query parameters, method."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Какое утверждение о «HTTPRoute — дополнительный аспект» корректно?",
-        "options": [
-          "ReferenceGrant позволяет владельцу целевого namespace явно разрешить ссылку от другого namespace на Service/Secret/другой ресурс.",
-          "TLS termination означает: Gateway принимает TLS, имеет сертификат Secret/certificateRef и передаёт HTTP backend.",
-          "Redirect, URL rewrite, request/response header modification и traffic split должны быть сформулированы как явно тестируемые правила.",
-          "HTTPRoute сопоставляет hostnames и matches: path, headers, query parameters, method.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Какой контроль следует сохранить при «Разделение TLS»?",
-        "options": [
-          "HTTPRoute сопоставляет hostnames и matches: path, headers, query parameters, method.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "TLS termination означает: Gateway принимает TLS, имеет сертификат Secret/certificateRef и передаёт HTTP backend."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Какое действие было бы небезопасным при «Разделение TLS — дополнительный аспект»?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Redirect, URL rewrite, request/response header modification и traffic split должны быть сформулированы как явно тестируемые правила.",
-          "HTTPRoute сопоставляет hostnames и matches: path, headers, query parameters, method.",
-          "TLS termination означает: Gateway принимает TLS, имеет сертификат Secret/certificateRef и передаёт HTTP backend.",
-          "ReferenceGrant позволяет владельцу целевого namespace явно разрешить ссылку от другого namespace на Service/Secret/другой ресурс."
+          "Hostname, path, headers, query parameters и method в пределах поддерживаемой реализации.",
+          "Только UID Pod.",
+          "Только размер PVC.",
+          "Только CPU node.",
+          "Только RBAC role."
         ],
         "answer": 0
       },
       {
-        "question": "Какой технический принцип верен для «Cross-namespace ссылки»?",
+        "question": "Что задаёт backendRef HTTPRoute?",
         "options": [
-          "TLS termination означает: Gateway принимает TLS, имеет сертификат Secret/certificateRef и передаёт HTTP backend.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "ReferenceGrant позволяет владельцу целевого namespace явно разрешить ссылку от другого namespace на Service/Secret/другой ресурс."
+          "Целевой backend Service и порт, а при необходимости вес для traffic split.",
+          "CNI tunnel mode.",
+          "Имя etcd member.",
+          "Права ServiceAccount.",
+          "Тип StorageClass."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какое утверждение о «Cross-namespace ссылки — дополнительный аспект» корректно?",
+        "question": "Что означает TLS termination на Gateway?",
         "options": [
-          "TLS termination означает: Gateway принимает TLS, имеет сертификат Secret/certificateRef и передаёт HTTP backend.",
-          "Redirect, URL rewrite, request/response header modification и traffic split должны быть сформулированы как явно тестируемые правила.",
-          "Проверяйте DNS, SNI, сертификат/цепочку, listener status, HTTPRoute Accepted/Programmed, Service endpoints и ответ backend.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "ReferenceGrant позволяет владельцу целевого namespace явно разрешить ссылку от другого namespace на Service/Secret/другой ресурс."
+          "Gateway принимает TLS, использует сертификат и передаёт расшифрованный HTTP backend.",
+          "TLS всегда идёт до Pod без изменений.",
+          "Gateway не видит сертификат.",
+          "Service создаёт сертификат.",
+          "CNI шифрует данные."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
-        "question": "Что необходимо учитывать при «Traffic filters и portability»?",
+        "question": "Чем TLS passthrough отличается от termination?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "ReferenceGrant позволяет владельцу целевого namespace явно разрешить ссылку от другого namespace на Service/Secret/другой ресурс.",
-          "Redirect, URL rewrite, request/response header modification и traffic split должны быть сформулированы как явно тестируемые правила.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "TLS остаётся до backend, поэтому edge не выполняет обычную HTTP-маршрутизацию содержимого.",
+          "Passthrough удаляет SNI.",
+          "Termination отключает TLS.",
+          "Passthrough создаёт PVC.",
+          "между ними нет разницы."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
-        "question": "Какой механизм лежит в основе «Traffic filters и portability — дополнительный аспект»?",
+        "question": "Для чего нужен ReferenceGrant?",
         "options": [
-          "TLS termination означает: Gateway принимает TLS, имеет сертификат Secret/certificateRef и передаёт HTTP backend.",
-          "ReferenceGrant позволяет владельцу целевого namespace явно разрешить ссылку от другого namespace на Service/Secret/другой ресурс.",
-          "Redirect, URL rewrite, request/response header modification и traffic split должны быть сформулированы как явно тестируемые правила.",
-          "Проверяйте DNS, SNI, сертификат/цепочку, listener status, HTTPRoute Accepted/Programmed, Service endpoints и ответ backend.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Позволяет целевому namespace явно разрешить cross-namespace ссылку на свой ресурс.",
+          "Открывает любой backend всем namespace.",
+          "Заменяет RBAC.",
+          "Создаёт GatewayClass.",
+          "Назначает Pod node."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какое правило безопасности верно для «TLS и проверки»?",
+        "question": "Почему отсутствие ReferenceGrant не является ошибкой?",
         "options": [
-          "Redirect, URL rewrite, request/response header modification и traffic split должны быть сформулированы как явно тестируемые правила.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Проверяйте DNS, SNI, сертификат/цепочку, listener status, HTTPRoute Accepted/Programmed, Service endpoints и ответ backend.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Это ожидаемая защита multi-tenancy от ссылки на чужой Service или Secret.",
+          "Gateway API не имеет namespace.",
+          "Service не поддерживает ports.",
+          "Route не использует backend.",
+          "TLS не требует Secret."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
-        "question": "Какое ограничение необходимо учитывать при «TLS и проверки — дополнительный аспект»?",
+        "question": "Зачем тестировать rewrite и redirect?",
         "options": [
-          "HTTPRoute сопоставляет hostnames и matches: path, headers, query parameters, method.",
-          "Проверяйте DNS, SNI, сертификат/цепочку, listener status, HTTPRoute Accepted/Programmed, Service endpoints и ответ backend.",
-          "ReferenceGrant позволяет владельцу целевого namespace явно разрешить ссылку от другого namespace на Service/Secret/другой ресурс.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "TLS termination означает: Gateway принимает TLS, имеет сертификат Secret/certificateRef и передаёт HTTP backend."
+          "Они меняют URL-контракт клиента, заголовки и возможное поведение cache/cookie.",
+          "Они увеличивают PVC.",
+          "Они выбирают scheduler.",
+          "Они создают DNS.",
+          "Они шифруют Secret."
         ],
-        "answer": 3
+        "answer": 0
+      },
+      {
+        "question": "Что нужно проверить при TLS-инциденте Gateway?",
+        "options": [
+          "DNS, SNI, цепочку сертификата, listener status, Route status и backend.",
+          "Только число Deployment.",
+          "Только ConfigMap.",
+          "Только resource quota.",
+          "Только CNI version."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Почему vendor policy следует выделять отдельно от стандартного Route?",
+        "options": [
+          "Чтобы явно видеть зависимость от конкретной реализации Gateway controller.",
+          "Чтобы Route не работал.",
+          "Чтобы удалить Service.",
+          "Чтобы не использовать TLS.",
+          "Чтобы отключить labels."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Какой результат доказывает доступность HTTPRoute?",
+        "options": [
+          "Успешный клиентский запрос к нужному hostname/path вместе с корректными conditions Route.",
+          "Только существование YAML.",
+          "Только IP Gateway.",
+          "Только Secret в namespace.",
+          "Только running Pod controller."
+        ],
+        "answer": 0
       }
     ]
   },
@@ -1958,112 +1958,112 @@ window.QUIZ_DATA = {
     "title": "Kubernetes: подробный учебный материал — Gateway API: L4, gRPC и безопасная миграция",
     "questions": [
       {
-        "question": "Какой технический принцип верен для «L4 и L7»?",
+        "question": "Когда уместен TCPRoute?",
         "options": [
-          "TCPRoute направляет непрозрачный TCP-поток, UDPRoute — UDP, TLSRoute маршрутизирует TLS по SNI без termination при поддержке implementation.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Соберите инвентарь Ingress: class, host/path, annotations, TLS, backend, canary, external auth, source IP и timeouts.",
-          "Gateway controller, external LoadBalancer, cert-manager, DNS и backend Service образуют одну цепочку."
+          "Когда нужно направлять непрозрачный TCP-поток без HTTP path/header обработки.",
+          "Когда нужно выбрать HTTP method.",
+          "Когда нужен PVC snapshot.",
+          "Когда выбирается node.",
+          "Когда читается Secret."
         ],
         "answer": 0
       },
       {
-        "question": "Какое утверждение о «L4 и L7 — дополнительный аспект» корректно?",
+        "question": "Что позволяет TLSRoute?",
         "options": [
-          "Gateway controller, external LoadBalancer, cert-manager, DNS и backend Service образуют одну цепочку.",
-          "Соберите инвентарь Ingress: class, host/path, annotations, TLS, backend, canary, external auth, source IP и timeouts.",
-          "gRPC использует HTTP/2, service/method и длительные потоки.",
-          "TCPRoute направляет непрозрачный TCP-поток, UDPRoute — UDP, TLSRoute маршрутизирует TLS по SNI без termination при поддержке implementation.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Маршрутизацию TLS-потока по SNI без обязательного TLS termination при поддержке реализации.",
+          "Дешифровать любой TLS без сертификата.",
+          "Выдавать Pod IP.",
+          "Создавать RBAC.",
+          "Сохранять metrics."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Что необходимо учитывать при «GRPCRoute»?",
+        "question": "Почему GRPCRoute требует проверки HTTP/2 и TLS режима?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Соберите инвентарь Ingress: class, host/path, annotations, TLS, backend, canary, external auth, source IP и timeouts.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Gateway controller, external LoadBalancer, cert-manager, DNS и backend Service образуют одну цепочку.",
-          "gRPC использует HTTP/2, service/method и длительные потоки."
+          "gRPC использует HTTP/2, и dataplane должен корректно поддержать выбранный способ передачи.",
+          "gRPC не использует сеть.",
+          "gRPC всегда UDP.",
+          "gRPC заменяет Service.",
+          "gRPC создаёт PV."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какой механизм лежит в основе «GRPCRoute — дополнительный аспект»?",
+        "question": "Почему retry на edge может быть опасен?",
         "options": [
-          "Gateway controller, external LoadBalancer, cert-manager, DNS и backend Service образуют одну цепочку.",
-          "Соберите инвентарь Ingress: class, host/path, annotations, TLS, backend, canary, external auth, source IP и timeouts.",
-          "TCPRoute направляет непрозрачный TCP-поток, UDPRoute — UDP, TLSRoute маршрутизирует TLS по SNI без termination при поддержке implementation.",
-          "Проверяйте маршрут по отдельному тестовому hostname или контролируемому клиенту, включая DNS, TLS, заголовки, auth, response body и long-lived connections.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Повтор неидемпотентного HTTP или RPC действия способен выполнить операцию дважды.",
+          "Retry отключает DNS.",
+          "Retry удаляет Route.",
+          "Retry создаёт CNI IP.",
+          "Retry уменьшает Pod CPU."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какую роль выполняет «Миграция с Ingress»?",
+        "question": "Что нужно собрать до миграции с Ingress?",
         "options": [
-          "gRPC использует HTTP/2, service/method и длительные потоки.",
-          "TCPRoute направляет непрозрачный TCP-поток, UDPRoute — UDP, TLSRoute маршрутизирует TLS по SNI без termination при поддержке implementation.",
-          "Gateway controller, external LoadBalancer, cert-manager, DNS и backend Service образуют одну цепочку.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Соберите инвентарь Ingress: class, host/path, annotations, TLS, backend, canary, external auth, source IP и timeouts."
+          "Hosts, paths, TLS, annotations, auth, timeouts, source IP и поведение backend.",
+          "Только UID Ingress.",
+          "Только image Pod.",
+          "Только StorageClass.",
+          "Только число node."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Как работает «Миграция с Ingress — дополнительный аспект» в этой ситуации?",
+        "question": "Почему нельзя делить один hostname между двумя dataplane без плана?",
         "options": [
-          "gRPC использует HTTP/2, service/method и длительные потоки.",
-          "Соберите инвентарь Ingress: class, host/path, annotations, TLS, backend, canary, external auth, source IP и timeouts.",
-          "Gateway controller, external LoadBalancer, cert-manager, DNS и backend Service образуют одну цепочку.",
-          "TCPRoute направляет непрозрачный TCP-поток, UDPRoute — UDP, TLSRoute маршрутизирует TLS по SNI без termination при поддержке implementation.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "DNS, TLS и трафик могут попадать в разные реализации непредсказуемо.",
+          "Hostname не используется Gateway.",
+          "TLS не зависит от DNS.",
+          "Pod не имеет сети.",
+          "Service не имеет port."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Что необходимо учитывать при «Проверка и переключение»?",
+        "question": "Зачем нужен тестовый hostname при миграции?",
         "options": [
-          "Соберите инвентарь Ingress: class, host/path, annotations, TLS, backend, canary, external auth, source IP и timeouts.",
-          "Проверяйте маршрут по отдельному тестовому hostname или контролируемому клиенту, включая DNS, TLS, заголовки, auth, response body и long-lived connections.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Gateway controller, external LoadBalancer, cert-manager, DNS и backend Service образуют одну цепочку.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Он позволяет проверить Gateway-путь без риска для рабочего пользовательского трафика.",
+          "Он удаляет старый Ingress.",
+          "Он заменяет certificate.",
+          "Он отключает CNI.",
+          "Он создаёт etcd snapshot."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
-        "question": "Какой механизм лежит в основе «Проверка и переключение — дополнительный аспект»?",
+        "question": "Что учитывать при DNS cutover?",
         "options": [
-          "TCPRoute направляет непрозрачный TCP-поток, UDPRoute — UDP, TLSRoute маршрутизирует TLS по SNI без termination при поддержке implementation.",
-          "Соберите инвентарь Ingress: class, host/path, annotations, TLS, backend, canary, external auth, source IP и timeouts.",
-          "gRPC использует HTTP/2, service/method и длительные потоки.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Проверяйте маршрут по отдельному тестовому hostname или контролируемому клиенту, включая DNS, TLS, заголовки, auth, response body и long-lived connections."
+          "TTL, кеширование клиентов, connection draining и готовый rollback.",
+          "Только имя Pod.",
+          "Только размер image.",
+          "Только labels Namespace.",
+          "Только CPU limit."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
-        "question": "Какой технический принцип верен для «Эксплуатационная граница»?",
+        "question": "Почему Gateway controller рассматривают вместе с LoadBalancer и DNS?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "gRPC использует HTTP/2, service/method и длительные потоки.",
-          "Соберите инвентарь Ingress: class, host/path, annotations, TLS, backend, canary, external auth, source IP и timeouts.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Gateway controller, external LoadBalancer, cert-manager, DNS и backend Service образуют одну цепочку."
+          "Они образуют одну цепочку публикации внешнего маршрута.",
+          "Gateway не использует сеть.",
+          "LoadBalancer создаёт Pod.",
+          "DNS хранит PVC.",
+          "Controller заменяет vmauth."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какое утверждение о «Эксплуатационная граница — дополнительный аспект» корректно?",
+        "question": "Какие сигналы мониторить после миграции?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Соберите инвентарь Ingress: class, host/path, annotations, TLS, backend, canary, external auth, source IP и timeouts.",
-          "TCPRoute направляет непрозрачный TCP-поток, UDPRoute — UDP, TLSRoute маршрутизирует TLS по SNI без termination при поддержке implementation.",
-          "Gateway controller, external LoadBalancer, cert-manager, DNS и backend Service образуют одну цепочку.",
-          "gRPC использует HTTP/2, service/method и длительные потоки."
+          "Route conditions, TLS errors, 4xx/5xx, latency, connection count и пользовательские проверки.",
+          "Только Git commits.",
+          "Только UID namespace.",
+          "Только size ConfigMap.",
+          "Только число Secret."
         ],
         "answer": 0
       }
@@ -2073,114 +2073,114 @@ window.QUIZ_DATA = {
     "title": "Kubernetes: подробный учебный материал — RBAC, admission и безопасность Kubernetes",
     "questions": [
       {
-        "question": "Какую роль выполняет «Identity и ServiceAccount»?",
+        "question": "Что проверяет RBAC после аутентификации клиента?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Kubernetes API сначала устанавливает identity, затем authorizer решает разрешён ли verb над resource/subresource в namespace или кластере.",
-          "Контейнеры запускайте non-root, без privileged, с drop capabilities, read-only root filesystem там, где возможно, seccomp и минимальными volumes.",
-          "Role действует в namespace, ClusterRole — кластерно или может быть привязан в namespace.",
-          "Mutating admission добавляет/изменяет объект, validating admission принимает/отклоняет его."
+          "Разрешены ли identity конкретные verb над resource и subresource в нужной области.",
+          "RBAC выбирает node для Pod.",
+          "RBAC назначает Pod IP.",
+          "RBAC монтирует PVC.",
+          "RBAC хранит Secret в etcd."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
-        "question": "Как работает «Identity и ServiceAccount — дополнительный аспект» в этой ситуации?",
+        "question": "Чем Role отличается от ClusterRole?",
         "options": [
-          "Используйте фиксированные image digests или контролируемые теги, сканирование, подпись и registry policy.",
-          "Kubernetes API сначала устанавливает identity, затем authorizer решает разрешён ли verb над resource/subresource в namespace или кластере.",
-          "Mutating admission добавляет/изменяет объект, validating admission принимает/отклоняет его.",
-          "Role действует в namespace, ClusterRole — кластерно или может быть привязан в namespace.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Role действует в namespace, ClusterRole описывает кластерные или переиспользуемые права.",
+          "Role запускает контейнер, ClusterRole хранит данные.",
+          "Role только для node, ClusterRole только для Pod.",
+          "между ними нет различия.",
+          "Role всегда даёт cluster-admin."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какой контроль следует сохранить при «RBAC»?",
+        "question": "Что делает RoleBinding?",
         "options": [
-          "Используйте фиксированные image digests или контролируемые теги, сканирование, подпись и registry policy.",
-          "Kubernetes API сначала устанавливает identity, затем authorizer решает разрешён ли verb над resource/subresource в namespace или кластере.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Role действует в namespace, ClusterRole — кластерно или может быть привязан в namespace.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Назначает Role или ClusterRole субъекту в одном namespace.",
+          "Создаёт новый ServiceAccount.",
+          "Настраивает Gateway listener.",
+          "Выделяет IP Pod.",
+          "Создаёт PV."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
-        "question": "Какое действие было бы небезопасным при «RBAC — дополнительный аспект»?",
+        "question": "Почему pods/exec и pods/log учитывают отдельно в RBAC?",
         "options": [
-          "Контейнеры запускайте non-root, без privileged, с drop capabilities, read-only root filesystem там, где возможно, seccomp и минимальными volumes.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Role действует в namespace, ClusterRole — кластерно или может быть привязан в namespace.",
-          "Mutating admission добавляет/изменяет объект, validating admission принимает/отклоняет его.",
-          "Используйте фиксированные image digests или контролируемые теги, сканирование, подпись и registry policy."
+          "Это отдельные subresources с чувствительным доступом к процессам и данным Pod.",
+          "Они автоматически следуют из get secrets.",
+          "Они относятся к StorageClass.",
+          "Они не имеют отношения к API.",
+          "Они доступны всем пользователям."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
-        "question": "Какое правило безопасности верно для «Admission и политики»?",
+        "question": "Что делает validating admission webhook?",
         "options": [
-          "Role действует в namespace, ClusterRole — кластерно или может быть привязан в namespace.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Mutating admission добавляет/изменяет объект, validating admission принимает/отклоняет его.",
-          "Контейнеры запускайте non-root, без privileged, с drop capabilities, read-only root filesystem там, где возможно, seccomp и минимальными volumes.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Принимает или отклоняет объект до сохранения по заданной политике.",
+          "Запускает контейнер на node.",
+          "Маршрутизирует HTTP.",
+          "Выделяет IPAM адрес.",
+          "Создаёт backup etcd."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
-        "question": "Какое ограничение необходимо учитывать при «Admission и политики — дополнительный аспект»?",
+        "question": "Почему failurePolicy webhook является production-решением?",
         "options": [
-          "Контейнеры запускайте non-root, без privileged, с drop capabilities, read-only root filesystem там, где возможно, seccomp и минимальными volumes.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Mutating admission добавляет/изменяет объект, validating admission принимает/отклоняет его.",
-          "Kubernetes API сначала устанавливает identity, затем authorizer решает разрешён ли verb над resource/subresource в namespace или кластере.",
-          "Используйте фиксированные image digests или контролируемые теги, сканирование, подпись и registry policy."
+          "Недоступный webhook может либо блокировать изменения, либо пропускать контроль безопасности.",
+          "Webhook не участвует в API.",
+          "Webhook влияет только на README.",
+          "Webhook не имеет TLS.",
+          "Webhook запускается только вручную."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
-        "question": "Какой контроль следует сохранить при «Pod security»?",
+        "question": "Какой риск даёт privileged Pod?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Используйте фиксированные image digests или контролируемые теги, сканирование, подпись и registry policy.",
-          "Kubernetes API сначала устанавливает identity, затем authorizer решает разрешён ли verb над resource/subresource в namespace или кластере.",
-          "Контейнеры запускайте non-root, без privileged, с drop capabilities, read-only root filesystem там, где возможно, seccomp и минимальными volumes.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Он может получить широкий доступ к возможностям node и размыть границу контейнера.",
+          "Он не получает сеть.",
+          "Он не видит volume.",
+          "Он не запускает процессы.",
+          "Он только меняет labels."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
-        "question": "Какое действие было бы небезопасным при «Pod security — дополнительный аспект»?",
+        "question": "Зачем запускать приложение non-root?",
         "options": [
-          "Role действует в namespace, ClusterRole — кластерно или может быть привязан в namespace.",
-          "Используйте фиксированные image digests или контролируемые теги, сканирование, подпись и registry policy.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Mutating admission добавляет/изменяет объект, validating admission принимает/отклоняет его.",
-          "Контейнеры запускайте non-root, без privileged, с drop capabilities, read-only root filesystem там, где возможно, seccomp и минимальными volumes."
+          "Это уменьшает последствия компрометации процесса внутри контейнера.",
+          "Это делает Pod готовым без probe.",
+          "Это создаёт Service.",
+          "Это заменяет NetworkPolicy.",
+          "Это исключает RBAC."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
-        "question": "Какой технический принцип верен для «Supply chain и audit»?",
+        "question": "Почему образ лучше фиксировать digest?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Используйте фиксированные image digests или контролируемые теги, сканирование, подпись и registry policy.",
-          "Role действует в namespace, ClusterRole — кластерно или может быть привязан в namespace.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Digest однозначно связывает deployment с конкретными байтами образа.",
+          "Digest автоматически шифрует Secret.",
+          "Digest выбирает CNI.",
+          "Digest создаёт Pod IP.",
+          "Digest заменяет tag registry."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
-        "question": "Какое утверждение о «Supply chain и audit — дополнительный аспект» корректно?",
+        "question": "Что показывает audit log Kubernetes API?",
         "options": [
-          "Kubernetes API сначала устанавливает identity, затем authorizer решает разрешён ли verb над resource/subresource в namespace или кластере.",
-          "Role действует в namespace, ClusterRole — кластерно или может быть привязан в namespace.",
-          "Используйте фиксированные image digests или контролируемые теги, сканирование, подпись и registry policy.",
-          "Mutating admission добавляет/изменяет объект, validating admission принимает/отклоняет его.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Кто и каким API-действием обращался к объектам кластера.",
+          "Содержимое каждого TCP-пакета.",
+          "Историю CPU контейнера.",
+          "Данные PVC.",
+          "Состояние DNS cache."
         ],
-        "answer": 4
+        "answer": 0
       }
     ]
   },
@@ -2188,7 +2188,7 @@ window.QUIZ_DATA = {
     "title": "Kubernetes: подробный учебный материал — Наблюдаемость Kubernetes: метрики, логи, события и трассировка",
     "questions": [
       {
-        "question": "Какой технический принцип верен для «Слои наблюдаемости»?",
+        "question": "Что необходимо понимать о Слои наблюдаемости?",
         "options": [
           "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает.",
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
@@ -2199,7 +2199,7 @@ window.QUIZ_DATA = {
         "answer": 3
       },
       {
-        "question": "Какое утверждение о «Слои наблюдаемости — дополнительный аспект» корректно?",
+        "question": "Какой принцип важен для Слои наблюдаемости?",
         "options": [
           "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает.",
           "Наблюдаемость кластера включает control plane, nodes, kubelet/runtime, CNI, workloads и пользовательский путь.",
@@ -2210,7 +2210,7 @@ window.QUIZ_DATA = {
         "answer": 3
       },
       {
-        "question": "Что необходимо учитывать при «Состояние объектов»?",
+        "question": "Какую задачу решает Состояние объектов?",
         "options": [
           "CPU, memory, filesystem, network и saturation node нужны вместе с requests/limits.",
           "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает.",
@@ -2221,7 +2221,7 @@ window.QUIZ_DATA = {
         "answer": 3
       },
       {
-        "question": "Какой механизм лежит в основе «Состояние объектов — дополнительный аспект»?",
+        "question": "Какое ограничение нужно учитывать у Состояние объектов?",
         "options": [
           "Собирайте conditions Deployment, Pod, Node, PVC, Gateway и их transition time.",
           "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает.",
@@ -2232,7 +2232,7 @@ window.QUIZ_DATA = {
         "answer": 2
       },
       {
-        "question": "Какой технический принцип верен для «Метрики ресурса»?",
+        "question": "Что необходимо понимать о Метрики ресурса?",
         "options": [
           "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает.",
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
@@ -2243,7 +2243,7 @@ window.QUIZ_DATA = {
         "answer": 3
       },
       {
-        "question": "Какое утверждение о «Метрики ресурса — дополнительный аспект» корректно?",
+        "question": "Какой принцип важен для Метрики ресурса?",
         "options": [
           "CPU, memory, filesystem, network и saturation node нужны вместе с requests/limits.",
           "Наблюдаемость кластера включает control plane, nodes, kubelet/runtime, CNI, workloads и пользовательский путь.",
@@ -2254,7 +2254,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Что необходимо учитывать при «Логи и контекст»?",
+        "question": "Какую задачу решает Логи и контекст?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "Собирайте conditions Deployment, Pod, Node, PVC, Gateway и их transition time.",
@@ -2265,7 +2265,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Какой механизм лежит в основе «Логи и контекст — дополнительный аспект»?",
+        "question": "Какое ограничение нужно учитывать у Логи и контекст?",
         "options": [
           "Собирайте stdout/stderr контейнеров, логи kubelet/runtime и CNI, сохраняя namespace, Pod, container, node, image и trace/request correlation.",
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
@@ -2276,7 +2276,7 @@ window.QUIZ_DATA = {
         "answer": 1
       },
       {
-        "question": "Какой технический принцип верен для «Alert и SLO»?",
+        "question": "Что необходимо понимать о Alert и SLO?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
@@ -2287,7 +2287,7 @@ window.QUIZ_DATA = {
         "answer": 2
       },
       {
-        "question": "Какое утверждение о «Alert и SLO — дополнительный аспект» корректно?",
+        "question": "Какой принцип важен для Alert и SLO?",
         "options": [
           "Собирайте conditions Deployment, Pod, Node, PVC, Gateway и их transition time.",
           "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает.",
@@ -2303,7 +2303,7 @@ window.QUIZ_DATA = {
     "title": "Kubernetes: подробный учебный материал — Установка, обновление и высокая доступность Kubernetes",
     "questions": [
       {
-        "question": "Какой технический принцип верен для «Дизайн кластера»?",
+        "question": "Что необходимо понимать о Дизайн кластера?",
         "options": [
           "cordon предотвращает новое размещение, drain выселяет управляемые Pods с учётом PDB и daemonsets.",
           "Rollback определяется до изменения: версия образов/манифестов, backup, точка восстановления и критерий stop.",
@@ -2314,7 +2314,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Какое утверждение о «Дизайн кластера — дополнительный аспект» корректно?",
+        "question": "Какой принцип важен для Дизайн кластера?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "До установки выберите CIDR Pod/Service без пересечений, topology control plane, container runtime, CNI, ingress/Gateway, storage и механизм доступа.",
@@ -2325,7 +2325,7 @@ window.QUIZ_DATA = {
         "answer": 0
       },
       {
-        "question": "Какое свойство «Control plane и etcd» технически верно?",
+        "question": "Какое свойство имеет Control plane и etcd?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "До установки выберите CIDR Pod/Service без пересечений, topology control plane, container runtime, CNI, ingress/Gateway, storage и механизм доступа.",
@@ -2336,7 +2336,7 @@ window.QUIZ_DATA = {
         "answer": 3
       },
       {
-        "question": "Какой результат ожидается от «Control plane и etcd — дополнительный аспект»?",
+        "question": "Какой результат ожидается от Control plane и etcd?",
         "options": [
           "Планируйте upgrade по поддерживаемому version skew: control plane, nodes, kubelet, CNI, CSI и addons должны быть совместимы.",
           "API servers работают за стабильной точкой доступа; etcd требует нечётного числа членов для quorum.",
@@ -2347,7 +2347,7 @@ window.QUIZ_DATA = {
         "answer": 2
       },
       {
-        "question": "Какой технический принцип верен для «Обновление»?",
+        "question": "Что необходимо понимать о Обновление?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "API servers работают за стабильной точкой доступа; etcd требует нечётного числа членов для quorum.",
@@ -2358,7 +2358,7 @@ window.QUIZ_DATA = {
         "answer": 3
       },
       {
-        "question": "Какое утверждение о «Обновление — дополнительный аспект» корректно?",
+        "question": "Какой принцип важен для Обновление?",
         "options": [
           "До установки выберите CIDR Pod/Service без пересечений, topology control plane, container runtime, CNI, ingress/Gateway, storage и механизм доступа.",
           "Планируйте upgrade по поддерживаемому version skew: control plane, nodes, kubelet, CNI, CSI и addons должны быть совместимы.",
@@ -2369,7 +2369,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Что необходимо учитывать при «Drain и workloads»?",
+        "question": "Какую задачу решает Drain и workloads?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "Планируйте upgrade по поддерживаемому version skew: control plane, nodes, kubelet, CNI, CSI и addons должны быть совместимы.",
@@ -2380,7 +2380,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Какой механизм лежит в основе «Drain и workloads — дополнительный аспект»?",
+        "question": "Какое ограничение нужно учитывать у Drain и workloads?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "До установки выберите CIDR Pod/Service без пересечений, topology control plane, container runtime, CNI, ingress/Gateway, storage и механизм доступа.",
@@ -2391,7 +2391,7 @@ window.QUIZ_DATA = {
         "answer": 0
       },
       {
-        "question": "Какой технический принцип верен для «Rollback и проверка»?",
+        "question": "Что необходимо понимать о Rollback и проверка?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
@@ -2402,7 +2402,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Какое утверждение о «Rollback и проверка — дополнительный аспект» корректно?",
+        "question": "Какой принцип важен для Rollback и проверка?",
         "options": [
           "Планируйте upgrade по поддерживаемому version skew: control plane, nodes, kubelet, CNI, CSI и addons должны быть совместимы.",
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
@@ -2418,7 +2418,7 @@ window.QUIZ_DATA = {
     "title": "Kubernetes: подробный учебный материал — Диагностика Kubernetes: системный путь от симптома к причине",
     "questions": [
       {
-        "question": "Какой технический принцип верен для «Факт и граница»?",
+        "question": "Что необходимо понимать о Факт и граница?",
         "options": [
           "При API errors отделите authentication, authorization, admission, validation и etcd/control-plane availability.",
           "Для сетевого сбоя определите source Pod/namespace, destination IP/name/port, DNS и first failing hop.",
@@ -2429,7 +2429,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Какое утверждение о «Факт и граница — дополнительный аспект» корректно?",
+        "question": "Какой принцип важен для Факт и граница?",
         "options": [
           "При API errors отделите authentication, authorization, admission, validation и etcd/control-plane availability.",
           "Deployment → ReplicaSet → Pod — базовая цепочка.",
@@ -2440,7 +2440,7 @@ window.QUIZ_DATA = {
         "answer": 2
       },
       {
-        "question": "Что необходимо учитывать при «Workload»?",
+        "question": "Какую задачу решает Workload?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "При API errors отделите authentication, authorization, admission, validation и etcd/control-plane availability.",
@@ -2451,7 +2451,7 @@ window.QUIZ_DATA = {
         "answer": 2
       },
       {
-        "question": "Какой механизм лежит в основе «Workload — дополнительный аспект»?",
+        "question": "Какое ограничение нужно учитывать у Workload?",
         "options": [
           "При API errors отделите authentication, authorization, admission, validation и etcd/control-plane availability.",
           "После изменения повторите исходный пользовательский тест, затем проверьте метрики/alerts.",
@@ -2462,7 +2462,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Какой технический принцип верен для «Сеть»?",
+        "question": "Что необходимо понимать о Сеть?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "Для сетевого сбоя определите source Pod/namespace, destination IP/name/port, DNS и first failing hop.",
@@ -2473,7 +2473,7 @@ window.QUIZ_DATA = {
         "answer": 1
       },
       {
-        "question": "Какое утверждение о «Сеть — дополнительный аспект» корректно?",
+        "question": "Какой принцип важен для Сеть?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "Для сетевого сбоя определите source Pod/namespace, destination IP/name/port, DNS и first failing hop.",
@@ -2484,7 +2484,7 @@ window.QUIZ_DATA = {
         "answer": 0
       },
       {
-        "question": "Что необходимо учитывать при «Control plane»?",
+        "question": "Какую задачу решает Control plane?",
         "options": [
           "При API errors отделите authentication, authorization, admission, validation и etcd/control-plane availability.",
           "Для сетевого сбоя определите source Pod/namespace, destination IP/name/port, DNS и first failing hop.",
@@ -2495,7 +2495,7 @@ window.QUIZ_DATA = {
         "answer": 0
       },
       {
-        "question": "Какой механизм лежит в основе «Control plane — дополнительный аспект»?",
+        "question": "Какое ограничение нужно учитывать у Control plane?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "Deployment → ReplicaSet → Pod — базовая цепочка.",
@@ -2506,7 +2506,7 @@ window.QUIZ_DATA = {
         "answer": 0
       },
       {
-        "question": "Какой технический принцип верен для «Завершение инцидента»?",
+        "question": "Что проверить в первую очередь при Завершение инцидента?",
         "options": [
           "При API errors отделите authentication, authorization, admission, validation и etcd/control-plane availability.",
           "Deployment → ReplicaSet → Pod — базовая цепочка.",
@@ -2517,7 +2517,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Какое утверждение о «Завершение инцидента — дополнительный аспект» корректно?",
+        "question": "Какой факт важен при расследовании Завершение инцидента?",
         "options": [
           "Для сетевого сбоя определите source Pod/namespace, destination IP/name/port, DNS и first failing hop.",
           "Начните с точного симптома, времени, области и пользовательского результата.",
@@ -2533,7 +2533,7 @@ window.QUIZ_DATA = {
     "title": "Kubernetes: подробный учебный материал — GitOps, Helm и поставки Kubernetes-приложений",
     "questions": [
       {
-        "question": "Какой технический принцип верен для «Декларативный источник истины»?",
+        "question": "Что необходимо понимать о Декларативный источник истины?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "Chart параметризует шаблоны Kubernetes.",
@@ -2544,7 +2544,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Какое утверждение о «Декларативный источник истины — дополнительный аспект» корректно?",
+        "question": "Какой принцип важен для Декларативный источник истины?",
         "options": [
           "Откат — это новая декларация к известной версии, но rollback приложения может быть несовместим с миграцией данных.",
           "Pipeline проверяет YAML/render, schema, policy, image digest, tests и diff.",
@@ -2555,7 +2555,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Что необходимо учитывать при «Helm»?",
+        "question": "Какую задачу решает Helm?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "Chart параметризует шаблоны Kubernetes.",
@@ -2566,7 +2566,7 @@ window.QUIZ_DATA = {
         "answer": 1
       },
       {
-        "question": "Какой механизм лежит в основе «Helm — дополнительный аспект»?",
+        "question": "Какое ограничение нужно учитывать у Helm?",
         "options": [
           "Откат — это новая декларация к известной версии, но rollback приложения может быть несовместим с миграцией данных.",
           "Окружения отличаются явными параметрами, а не копиями шаблонов с ручными правками.",
@@ -2577,7 +2577,7 @@ window.QUIZ_DATA = {
         "answer": 2
       },
       {
-        "question": "Какой технический принцип верен для «Поставка»?",
+        "question": "Что необходимо понимать о Поставка?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
@@ -2588,7 +2588,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Какое утверждение о «Поставка — дополнительный аспект» корректно?",
+        "question": "Какой принцип важен для Поставка?",
         "options": [
           "Окружения отличаются явными параметрами, а не копиями шаблонов с ручными правками.",
           "Chart параметризует шаблоны Kubernetes.",
@@ -2599,7 +2599,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Какой контроль следует сохранить при «Secrets и окружения»?",
+        "question": "Какой риск нужно учитывать при Secrets и окружения?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "GitOps хранит желаемое состояние в Git, а контроллер в кластере сравнивает его с API и согласует изменения.",
@@ -2610,7 +2610,7 @@ window.QUIZ_DATA = {
         "answer": 3
       },
       {
-        "question": "Какое действие было бы небезопасным при «Secrets и окружения — дополнительный аспект»?",
+        "question": "Какое правило применяют для Secrets и окружения?",
         "options": [
           "Pipeline проверяет YAML/render, schema, policy, image digest, tests и diff.",
           "Окружения отличаются явными параметрами, а не копиями шаблонов с ручными правками.",
@@ -2621,7 +2621,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Какой технический принцип верен для «Rollback»?",
+        "question": "Что необходимо понимать о Rollback?",
         "options": [
           "Откат — это новая декларация к известной версии, но rollback приложения может быть несовместим с миграцией данных.",
           "GitOps хранит желаемое состояние в Git, а контроллер в кластере сравнивает его с API и согласует изменения.",
@@ -2632,7 +2632,7 @@ window.QUIZ_DATA = {
         "answer": 0
       },
       {
-        "question": "Какое утверждение о «Rollback — дополнительный аспект» корректно?",
+        "question": "Какой принцип важен для Rollback?",
         "options": [
           "Откат — это новая декларация к известной версии, но rollback приложения может быть несовместим с миграцией данных.",
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
@@ -2648,7 +2648,7 @@ window.QUIZ_DATA = {
     "title": "Kubernetes: подробный учебный материал — Итоговый production-проект: проектирование Kubernetes-платформы и приложения",
     "questions": [
       {
-        "question": "Какой технический принцип верен для «Исходная архитектура»?",
+        "question": "Что необходимо понимать о Исходная архитектура?",
         "options": [
           "Platform team управляет GatewayClass, listeners, certificates, CNI, StorageClass, RBAC baseline и observability.",
           "Спроектируйте сервис с несколькими репликами, Service, storage при необходимости, CNI и default-deny NetworkPolicy, Gateway API edge и observability.",
@@ -2659,7 +2659,7 @@ window.QUIZ_DATA = {
         "answer": 1
       },
       {
-        "question": "Какое утверждение о «Исходная архитектура — дополнительный аспект» корректно?",
+        "question": "Какой принцип важен для Исходная архитектура?",
         "options": [
           "Определите SLO и проверяемый пользовательский индикатор.",
           "Приёмка завершена, когда документация описывает topology, CIDR, CNI/Gateway implementation, flow policies, backup/restore, upgrade и incident runbook; pipeline воспроизводит deployment; тесты подтверждают разрешённый и запрещённый трафик, TLS и rollback.",
@@ -2670,7 +2670,7 @@ window.QUIZ_DATA = {
         "answer": 3
       },
       {
-        "question": "Что необходимо учитывать при «Платформенные границы»?",
+        "question": "Какую задачу решает Платформенные границы?",
         "options": [
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
           "Platform team управляет GatewayClass, listeners, certificates, CNI, StorageClass, RBAC baseline и observability.",
@@ -2681,7 +2681,7 @@ window.QUIZ_DATA = {
         "answer": 1
       },
       {
-        "question": "Какой механизм лежит в основе «Платформенные границы — дополнительный аспект»?",
+        "question": "Какое ограничение нужно учитывать у Платформенные границы?",
         "options": [
           "Определите SLO и проверяемый пользовательский индикатор.",
           "Platform team управляет GatewayClass, listeners, certificates, CNI, StorageClass, RBAC baseline и observability.",
@@ -2692,7 +2692,7 @@ window.QUIZ_DATA = {
         "answer": 3
       },
       {
-        "question": "Какой технический принцип верен для «Надёжность»?",
+        "question": "Что необходимо понимать о Надёжность?",
         "options": [
           "Примените least privilege для ServiceAccount/RBAC, restricted pod security, подписанные/сканированные образы, Secrets из управляемого источника, NetworkPolicy и TLS.",
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
@@ -2703,7 +2703,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Какое утверждение о «Надёжность — дополнительный аспект» корректно?",
+        "question": "Какой принцип важен для Надёжность?",
         "options": [
           "Приёмка завершена, когда документация описывает topology, CIDR, CNI/Gateway implementation, flow policies, backup/restore, upgrade и incident runbook; pipeline воспроизводит deployment; тесты подтверждают разрешённый и запрещённый трафик, TLS и rollback.",
           "Спроектируйте сервис с несколькими репликами, Service, storage при необходимости, CNI и default-deny NetworkPolicy, Gateway API edge и observability.",
@@ -2714,7 +2714,7 @@ window.QUIZ_DATA = {
         "answer": 2
       },
       {
-        "question": "Какой контроль следует сохранить при «Безопасность»?",
+        "question": "Какой риск нужно учитывать при Безопасность?",
         "options": [
           "Спроектируйте сервис с несколькими репликами, Service, storage при необходимости, CNI и default-deny NetworkPolicy, Gateway API edge и observability.",
           "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
@@ -2725,7 +2725,7 @@ window.QUIZ_DATA = {
         "answer": 3
       },
       {
-        "question": "Какое действие было бы небезопасным при «Безопасность — дополнительный аспект»?",
+        "question": "Какое правило применяют для Безопасность?",
         "options": [
           "Определите SLO и проверяемый пользовательский индикатор.",
           "Приёмка завершена, когда документация описывает topology, CIDR, CNI/Gateway implementation, flow policies, backup/restore, upgrade и incident runbook; pipeline воспроизводит deployment; тесты подтверждают разрешённый и запрещённый трафик, TLS и rollback.",
@@ -2736,7 +2736,7 @@ window.QUIZ_DATA = {
         "answer": 4
       },
       {
-        "question": "Какой технический принцип верен для «Приёмка»?",
+        "question": "Что необходимо понимать о Приёмка?",
         "options": [
           "Platform team управляет GatewayClass, listeners, certificates, CNI, StorageClass, RBAC baseline и observability.",
           "Приёмка завершена, когда документация описывает topology, CIDR, CNI/Gateway implementation, flow policies, backup/restore, upgrade и incident runbook; pipeline воспроизводит deployment; тесты подтверждают разрешённый и запрещённый трафик, TLS и rollback.",
@@ -2747,7 +2747,7 @@ window.QUIZ_DATA = {
         "answer": 1
       },
       {
-        "question": "Какое утверждение о «Приёмка — дополнительный аспект» корректно?",
+        "question": "Какой принцип важен для Приёмка?",
         "options": [
           "Спроектируйте сервис с несколькими репликами, Service, storage при необходимости, CNI и default-deny NetworkPolicy, Gateway API edge и observability.",
           "Platform team управляет GatewayClass, listeners, certificates, CNI, StorageClass, RBAC baseline и observability.",
