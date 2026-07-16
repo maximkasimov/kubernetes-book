@@ -2185,232 +2185,232 @@ window.QUIZ_DATA = {
     ]
   },
   "20": {
-    "title": "Kubernetes: подробный учебный материал — Наблюдаемость Kubernetes: метрики, логи, события и трассировка",
+    "title": "Наблюдаемость Kubernetes: метрики, логи, события и alert",
     "questions": [
       {
-        "question": "Что необходимо понимать о Слои наблюдаемости?",
+        "question": "Что показывает условие Ready у Pod?",
         "options": [
-          "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Наблюдаемость кластера включает control plane, nodes, kubelet/runtime, CNI, workloads и пользовательский путь.",
-          "CPU, memory, filesystem, network и saturation node нужны вместе с requests/limits."
+          "Pod считается готовым принимать новый трафик по оценке Kubernetes.",
+          "Все контейнеры уже скачали образы.",
+          "Pod существует в API не менее одной минуты.",
+          "Узел, где работает Pod, доступен по SSH.",
+          "В namespace нет предупреждающих событий."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
-        "question": "Какой принцип важен для Слои наблюдаемости?",
+        "question": "Чем событие Kubernetes отличается от лога приложения?",
         "options": [
-          "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает.",
-          "Наблюдаемость кластера включает control plane, nodes, kubelet/runtime, CNI, workloads и пользовательский путь.",
-          "Собирайте conditions Deployment, Pod, Node, PVC, Gateway и их transition time.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Собирайте stdout/stderr контейнеров, логи kubelet/runtime и CNI, сохраняя namespace, Pod, container, node, image и trace/request correlation."
+          "Событие описывает действие или состояние объекта Kubernetes, а лог — работу процесса приложения.",
+          "Событие хранит только HTTP-тела запросов, а лог — только метрики.",
+          "Событие всегда постоянное, а лог всегда удаляется сразу.",
+          "События создаёт только пользователь, а логи — только kube-apiserver.",
+          "Между ними нет практического различия."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
-        "question": "Какую задачу решает Состояние объектов?",
+        "question": "Какой сигнал прежде всего помогает понять, почему Pod не назначен на узел?",
         "options": [
-          "CPU, memory, filesystem, network и saturation node нужны вместе с requests/limits.",
-          "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Собирайте conditions Deployment, Pod, Node, PVC, Gateway и их transition time.",
-          "Наблюдаемость кластера включает control plane, nodes, kubelet/runtime, CNI, workloads и пользовательский путь."
+          "События Pod с сообщением scheduler о причинах невозможности размещения.",
+          "Суммарное число namespace в кластере.",
+          "Версия образа в предыдущем Deployment.",
+          "Список HTTP-маршрутов Gateway.",
+          "Размер файла kubeconfig на рабочей станции."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
-        "question": "Какое ограничение нужно учитывать у Состояние объектов?",
+        "question": "Почему phase Running не доказывает доступность приложения?",
         "options": [
-          "Собирайте conditions Deployment, Pod, Node, PVC, Gateway и их transition time.",
-          "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Наблюдаемость кластера включает control plane, nodes, kubelet/runtime, CNI, workloads и пользовательский путь.",
-          "CPU, memory, filesystem, network и saturation node нужны вместе с requests/limits."
+          "Контейнер может быть запущен, но readiness probe ещё не прошла или приложение отвечает ошибкой.",
+          "Running означает, что Pod не имеет IP-адреса.",
+          "Running бывает только у Job, а не у Deployment.",
+          "В этом состоянии Kubernetes удаляет все endpoints Service.",
+          "Фаза всегда описывает только версию образа."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
-        "question": "Что необходимо понимать о Метрики ресурса?",
+        "question": "Какой запрос отвечает на вопрос «сколько Pod реально готовы»?",
         "options": [
-          "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Собирайте conditions Deployment, Pod, Node, PVC, Gateway и их transition time.",
-          "CPU, memory, filesystem, network и saturation node нужны вместе с requests/limits.",
-          "Собирайте stdout/stderr контейнеров, логи kubelet/runtime и CNI, сохраняя namespace, Pod, container, node, image и trace/request correlation."
+          "Проверка условий готовности или метрики готовых реплик, а не простой подсчёт объектов Pod.",
+          "Подсчёт всех YAML-файлов в Git-репозитории.",
+          "Сумма размеров container image на узлах.",
+          "Количество команд kubectl apply за сутки.",
+          "Число namespace с меткой production."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
-        "question": "Какой принцип важен для Метрики ресурса?",
+        "question": "Зачем связывать логи с namespace, Pod и именем контейнера?",
         "options": [
-          "CPU, memory, filesystem, network и saturation node нужны вместе с requests/limits.",
-          "Наблюдаемость кластера включает control plane, nodes, kubelet/runtime, CNI, workloads и пользовательский путь.",
-          "Собирайте stdout/stderr контейнеров, логи kubelet/runtime и CNI, сохраняя namespace, Pod, container, node, image и trace/request correlation.",
-          "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Чтобы из ошибки процесса перейти к конкретному объекту, его событиям и версии workload.",
+          "Чтобы уменьшить число реплик Deployment.",
+          "Чтобы Service выбирал Pod по этим полям.",
+          "Чтобы kubelet мог скачать контейнерный образ.",
+          "Чтобы заменить RBAC на поиск по логам."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какую задачу решает Логи и контекст?",
+        "question": "Что должен выражать хороший alert о недоступности сервиса?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Собирайте conditions Deployment, Pod, Node, PVC, Gateway и их transition time.",
-          "Наблюдаемость кластера включает control plane, nodes, kubelet/runtime, CNI, workloads и пользовательский путь.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Собирайте stdout/stderr контейнеров, логи kubelet/runtime и CNI, сохраняя namespace, Pod, container, node, image и trace/request correlation."
+          "Наблюдаемый пользовательский риск и понятное условие срабатывания, а не любое техническое изменение.",
+          "Любое появление нового Pod в namespace.",
+          "Наличие хотя бы одного информационного события.",
+          "Размер манифеста больше заданного числа строк.",
+          "Успешное выполнение kubectl apply."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какое ограничение нужно учитывать у Логи и контекст?",
+        "question": "Почему alert только по CPU usage может быть недостаточен?",
         "options": [
-          "Собирайте stdout/stderr контейнеров, логи kubelet/runtime и CNI, сохраняя namespace, Pod, container, node, image и trace/request correlation.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Собирайте conditions Deployment, Pod, Node, PVC, Gateway и их transition time.",
-          "CPU, memory, filesystem, network и saturation node нужны вместе с requests/limits.",
-          "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает."
+          "Высокий CPU сам по себе не говорит, что пользовательский сервис недоступен или деградировал.",
+          "CPU usage невозможно измерить в Kubernetes.",
+          "CPU usage всегда равен requests Pod.",
+          "Метрика CPU доступна лишь для control plane.",
+          "Она автоматически удаляет Pod."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
-        "question": "Что необходимо понимать о Alert и SLO?",
+        "question": "Как правильно использовать SLO при настройке alert?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Собирайте stdout/stderr контейнеров, логи kubelet/runtime и CNI, сохраняя namespace, Pod, container, node, image и trace/request correlation."
+          "Связать порог и окно alert с допустимой ошибкой сервиса и скоростью расходования error budget.",
+          "Заменить SLO числом replicas в Deployment.",
+          "Считать SLO названием namespace.",
+          "Включать alert при каждом обновлении Helm chart.",
+          "Хранить SLO только в комментарии YAML."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
-        "question": "Какой принцип важен для Alert и SLO?",
+        "question": "С чего начать расследование, если Service не направляет трафик в Pod?",
         "options": [
-          "Собирайте conditions Deployment, Pod, Node, PVC, Gateway и их transition time.",
-          "Alert должен соответствовать действию: недоступен API, нет ready replicas, исчерпан IPAM, Gateway не программируется, certificate истекает.",
-          "Собирайте stdout/stderr контейнеров, логи kubelet/runtime и CNI, сохраняя namespace, Pod, container, node, image и trace/request correlation.",
-          "Наблюдаемость кластера включает control plane, nodes, kubelet/runtime, CNI, workloads и пользовательский путь.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Проверить selector Service, labels Pod и готовые адреса в EndpointSlice.",
+          "Сразу перезапустить kube-apiserver.",
+          "Удалить все PVC приложения.",
+          "Отключить readiness probe у всех Pod.",
+          "Выдать пользователю cluster-admin."
         ],
-        "answer": 4
+        "answer": 0
       }
     ]
   },
   "21": {
-    "title": "Kubernetes: подробный учебный материал — Установка, обновление и высокая доступность Kubernetes",
+    "title": "Эксплуатация Kubernetes: обновление, drain, HA и rollback",
     "questions": [
       {
-        "question": "Что необходимо понимать о Дизайн кластера?",
+        "question": "За что отвечает control plane Kubernetes?",
         "options": [
-          "cordon предотвращает новое размещение, drain выселяет управляемые Pods с учётом PDB и daemonsets.",
-          "Rollback определяется до изменения: версия образов/манифестов, backup, точка восстановления и критерий stop.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "До установки выберите CIDR Pod/Service без пересечений, topology control plane, container runtime, CNI, ingress/Gateway, storage и механизм доступа."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Какой принцип важен для Дизайн кластера?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "До установки выберите CIDR Pod/Service без пересечений, topology control plane, container runtime, CNI, ingress/Gateway, storage и механизм доступа.",
-          "Планируйте upgrade по поддерживаемому version skew: control plane, nodes, kubelet, CNI, CSI и addons должны быть совместимы.",
-          "cordon предотвращает новое размещение, drain выселяет управляемые Pods с учётом PDB и daemonsets.",
-          "API servers работают за стабильной точкой доступа; etcd требует нечётного числа членов для quorum."
+          "За хранение и согласование желаемого состояния, API, планирование и работу контроллеров.",
+          "За выполнение каждого контейнерного процесса вместо kubelet.",
+          "Только за маршрутизацию внешнего HTTP-трафика.",
+          "Только за хранение логов приложений.",
+          "За создание образов контейнеров в CI."
         ],
         "answer": 0
       },
       {
-        "question": "Какое свойство имеет Control plane и etcd?",
+        "question": "Почему etcd требует резервного копирования и проверки восстановления?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "До установки выберите CIDR Pod/Service без пересечений, topology control plane, container runtime, CNI, ingress/Gateway, storage и механизм доступа.",
-          "cordon предотвращает новое размещение, drain выселяет управляемые Pods с учётом PDB и daemonsets.",
-          "API servers работают за стабильной точкой доступа; etcd требует нечётного числа членов для quorum.",
-          "Rollback определяется до изменения: версия образов/манифестов, backup, точка восстановления и критерий stop."
-        ],
-        "answer": 3
-      },
-      {
-        "question": "Какой результат ожидается от Control plane и etcd?",
-        "options": [
-          "Планируйте upgrade по поддерживаемому version skew: control plane, nodes, kubelet, CNI, CSI и addons должны быть совместимы.",
-          "API servers работают за стабильной точкой доступа; etcd требует нечётного числа членов для quorum.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "До установки выберите CIDR Pod/Service без пересечений, topology control plane, container runtime, CNI, ingress/Gateway, storage и механизм доступа.",
-          "cordon предотвращает новое размещение, drain выселяет управляемые Pods с учётом PDB и daemonsets."
-        ],
-        "answer": 2
-      },
-      {
-        "question": "Что необходимо понимать о Обновление?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "API servers работают за стабильной точкой доступа; etcd требует нечётного числа членов для quorum.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Планируйте upgrade по поддерживаемому version skew: control plane, nodes, kubelet, CNI, CSI и addons должны быть совместимы.",
-          "cordon предотвращает новое размещение, drain выселяет управляемые Pods с учётом PDB и daemonsets."
-        ],
-        "answer": 3
-      },
-      {
-        "question": "Какой принцип важен для Обновление?",
-        "options": [
-          "До установки выберите CIDR Pod/Service без пересечений, topology control plane, container runtime, CNI, ingress/Gateway, storage и механизм доступа.",
-          "Планируйте upgrade по поддерживаемому version skew: control plane, nodes, kubelet, CNI, CSI и addons должны быть совместимы.",
-          "API servers работают за стабильной точкой доступа; etcd требует нечётного числа членов для quorum.",
-          "Rollback определяется до изменения: версия образов/манифестов, backup, точка восстановления и критерий stop.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Какую задачу решает Drain и workloads?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Планируйте upgrade по поддерживаемому version skew: control plane, nodes, kubelet, CNI, CSI и addons должны быть совместимы.",
-          "Rollback определяется до изменения: версия образов/манифестов, backup, точка восстановления и критерий stop.",
-          "До установки выберите CIDR Pod/Service без пересечений, topology control plane, container runtime, CNI, ingress/Gateway, storage и механизм доступа.",
-          "cordon предотвращает новое размещение, drain выселяет управляемые Pods с учётом PDB и daemonsets."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Какое ограничение нужно учитывать у Drain и workloads?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "До установки выберите CIDR Pod/Service без пересечений, topology control plane, container runtime, CNI, ingress/Gateway, storage и механизм доступа.",
-          "cordon предотвращает новое размещение, drain выселяет управляемые Pods с учётом PDB и daemonsets.",
-          "API servers работают за стабильной точкой доступа; etcd требует нечётного числа членов для quorum.",
-          "Rollback определяется до изменения: версия образов/манифестов, backup, точка восстановления и критерий stop."
+          "В etcd хранится состояние Kubernetes; успешный backup без проверенного restore не доказывает возможность восстановления.",
+          "etcd хранит только временные логи kubelet.",
+          "etcd можно безопасно удалить после каждого rollout.",
+          "etcd нужен только для DNS Service.",
+          "etcd автоматически восстанавливает данные из образов контейнеров."
         ],
         "answer": 0
       },
       {
-        "question": "Что необходимо понимать о Rollback и проверка?",
+        "question": "Что делает kubectl drain с узлом?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Планируйте upgrade по поддерживаемому version skew: control plane, nodes, kubelet, CNI, CSI и addons должны быть совместимы.",
-          "Rollback определяется до изменения: версия образов/манифестов, backup, точка восстановления и критерий stop."
+          "Помечает узел непригодным для нового размещения и выселяет подходящие workload-Pod с учётом ограничений.",
+          "Немедленно удаляет namespace узла.",
+          "Перезапускает kube-apiserver.",
+          "Перемещает данные всех PVC в другой кластер.",
+          "Отключает все NetworkPolicy."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какой принцип важен для Rollback и проверка?",
+        "question": "Почему drain может не завершиться?",
         "options": [
-          "Планируйте upgrade по поддерживаемому version skew: control plane, nodes, kubelet, CNI, CSI и addons должны быть совместимы.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "До установки выберите CIDR Pod/Service без пересечений, topology control plane, container runtime, CNI, ingress/Gateway, storage и механизм доступа.",
-          "cordon предотвращает новое размещение, drain выселяет управляемые Pods с учётом PDB и daemonsets.",
-          "Rollback определяется до изменения: версия образов/манифестов, backup, точка восстановления и критерий stop."
+          "PodDisruptionBudget, локальные данные или неподходящие параметры могут запретить или ограничить выселение Pod.",
+          "Потому что Deployment нельзя обновлять в Kubernetes.",
+          "Потому что Service всегда держит Pod на одном узле.",
+          "Потому что labels запрещают удаление node.",
+          "Потому что CNI не поддерживает TCP."
         ],
-        "answer": 1
+        "answer": 0
+      },
+      {
+        "question": "Чем PodDisruptionBudget отличается от стратегии обновления Deployment?",
+        "options": [
+          "PDB ограничивает добровольные выселения, а maxSurge и maxUnavailable управляют rollout самого Deployment.",
+          "Оба объекта настраивают только Ingress TLS.",
+          "PDB создаёт новые Pod, а Deployment хранит логи.",
+          "Deployment запрещает любые node maintenance, PDB — нет.",
+          "Между ними нет разницы."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Какой риск создаёт PDB с minAvailable, равным числу всех реплик?",
+        "options": [
+          "Плановый drain может заблокироваться, потому что Kubernetes не может выселить ни одну реплику.",
+          "Kubernetes автоматически удалит все PVC.",
+          "Service потеряет DNS-имя.",
+          "etcd перестанет хранить объекты.",
+          "Container runtime начнёт использовать другой образ."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Что нужно проверить до обновления версии Kubernetes?",
+        "options": [
+          "Совместимость версий компонентов, аддонов и API, резервную копию etcd, capacity и план rollback.",
+          "Только свободное место на ноутбуке оператора.",
+          "Только количество YAML-файлов в репозитории.",
+          "Только наличие тега latest у образа.",
+          "Только текущий IP-адрес Service."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Почему обновление worker-узлов выполняют поэтапно?",
+        "options": [
+          "Чтобы сохранить capacity и доступные реплики, а также ограничить область возможного отказа.",
+          "Чтобы каждый Pod получил одинаковый IP-адрес.",
+          "Чтобы обойти RBAC для kubelet.",
+          "Чтобы убрать все readiness probes.",
+          "Чтобы control plane перестал использовать etcd."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Почему rollback Deployment не всегда откатывает весь релиз?",
+        "options": [
+          "Deployment возвращает шаблон Pod, но не обязательно возвращает миграции БД, Secret, ConfigMap и внешние изменения.",
+          "Rollback удаляет историю ReplicaSet навсегда.",
+          "Rollback гарантированно меняет версию Kubernetes cluster-wide.",
+          "Rollback всегда восстанавливает удалённый PVC.",
+          "Rollback заменяет резервную копию etcd."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Какой результат означает успешное эксплуатационное изменение?",
+        "options": [
+          "Пользовательский путь работает, нужные conditions достигнуты и наблюдаемость не показывает регрессии.",
+          "Команда kubectl завершилась с кодом 0 независимо от состояния объектов.",
+          "В Git появился новый коммит.",
+          "На узле можно выполнить ping.",
+          "Все Pod имеют одинаковый creationTimestamp."
+        ],
+        "answer": 0
       }
     ]
   },
