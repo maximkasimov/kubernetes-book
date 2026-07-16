@@ -2415,347 +2415,347 @@ window.QUIZ_DATA = {
     ]
   },
   "22": {
-    "title": "Kubernetes: подробный учебный материал — Диагностика Kubernetes: системный путь от симптома к причине",
+    "title": "Troubleshooting Kubernetes: путь от симптома к доказательству",
     "questions": [
       {
-        "question": "Что необходимо понимать о Факт и граница?",
+        "question": "Какой первый шаг при расследовании сбоя Kubernetes-сервиса?",
         "options": [
-          "При API errors отделите authentication, authorization, admission, validation и etcd/control-plane availability.",
-          "Для сетевого сбоя определите source Pod/namespace, destination IP/name/port, DNS и first failing hop.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Начните с точного симптома, времени, области и пользовательского результата."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Какой принцип важен для Факт и граница?",
-        "options": [
-          "При API errors отделите authentication, authorization, admission, validation и etcd/control-plane availability.",
-          "Deployment → ReplicaSet → Pod — базовая цепочка.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Начните с точного симптома, времени, области и пользовательского результата.",
-          "После изменения повторите исходный пользовательский тест, затем проверьте метрики/alerts."
-        ],
-        "answer": 2
-      },
-      {
-        "question": "Какую задачу решает Workload?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "При API errors отделите authentication, authorization, admission, validation и etcd/control-plane availability.",
-          "Deployment → ReplicaSet → Pod — базовая цепочка.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 2
-      },
-      {
-        "question": "Какое ограничение нужно учитывать у Workload?",
-        "options": [
-          "При API errors отделите authentication, authorization, admission, validation и etcd/control-plane availability.",
-          "После изменения повторите исходный пользовательский тест, затем проверьте метрики/alerts.",
-          "Начните с точного симптома, времени, области и пользовательского результата.",
-          "Deployment → ReplicaSet → Pod — базовая цепочка.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Что необходимо понимать о Сеть?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Для сетевого сбоя определите source Pod/namespace, destination IP/name/port, DNS и first failing hop.",
-          "Deployment → ReplicaSet → Pod — базовая цепочка.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 1
-      },
-      {
-        "question": "Какой принцип важен для Сеть?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Для сетевого сбоя определите source Pod/namespace, destination IP/name/port, DNS и first failing hop.",
-          "Начните с точного симптома, времени, области и пользовательского результата.",
-          "При API errors отделите authentication, authorization, admission, validation и etcd/control-plane availability.",
-          "Deployment → ReplicaSet → Pod — базовая цепочка."
+          "Сформулировать наблюдаемый симптом, его область и время, затем собрать проверяемые факты.",
+          "Сразу удалить все Pod workload.",
+          "Выдать всем пользователям cluster-admin.",
+          "Отключить NetworkPolicy в кластере.",
+          "Перезапустить control plane без диагностики."
         ],
         "answer": 0
       },
       {
-        "question": "Какую задачу решает Control plane?",
+        "question": "Почему успешный kubectl apply не доказывает готовность Deployment?",
         "options": [
-          "При API errors отделите authentication, authorization, admission, validation и etcd/control-plane availability.",
-          "Для сетевого сбоя определите source Pod/namespace, destination IP/name/port, DNS и first failing hop.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Начните с точного симптома, времени, области и пользовательского результата.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "API принял декларацию, но контроллеры, scheduler и kubelet ещё могут не создать готовые Pod.",
+          "kubectl apply всегда удаляет ReplicaSet.",
+          "Deployment не создаёт Pod после apply.",
+          "API не хранит Deployment.",
+          "Готовность зависит только от локального файла YAML."
         ],
         "answer": 0
       },
       {
-        "question": "Какое ограничение нужно учитывать у Control plane?",
+        "question": "Что проверить при Pending Pod с сообщением scheduler?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Deployment → ReplicaSet → Pod — базовая цепочка.",
-          "Для сетевого сбоя определите source Pod/namespace, destination IP/name/port, DNS и first failing hop.",
-          "Начните с точного симптома, времени, области и пользовательского результата.",
-          "После изменения повторите исходный пользовательский тест, затем проверьте метрики/alerts."
+          "Requests, доступную capacity, taints/tolerations, affinity и конкретное событие планировщика.",
+          "Только DNS-имя Service.",
+          "Только размер образа контейнера.",
+          "Только логи приложения, которого ещё нет.",
+          "Только версию kubectl на рабочей станции."
         ],
         "answer": 0
       },
       {
-        "question": "Что проверить в первую очередь при Завершение инцидента?",
+        "question": "Как отличить ImagePullBackOff от ошибки приложения?",
         "options": [
-          "При API errors отделите authentication, authorization, admission, validation и etcd/control-plane availability.",
-          "Deployment → ReplicaSet → Pod — базовая цепочка.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "После изменения повторите исходный пользовательский тест, затем проверьте метрики/alerts."
+          "По состоянию контейнера и событиям: ошибка возникает до запуска процесса приложения.",
+          "ImagePullBackOff означает, что приложение вернуло HTTP 500.",
+          "Это состояние создаётся Service selector-ом.",
+          "Оно появляется только после успешной readiness probe.",
+          "Оно показывает нехватку PVC."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какой факт важен при расследовании Завершение инцидента?",
+        "question": "Что означает отсутствие адресов в EndpointSlice Service?",
         "options": [
-          "Для сетевого сбоя определите source Pod/namespace, destination IP/name/port, DNS и first failing hop.",
-          "Начните с точного симптома, времени, области и пользовательского результата.",
-          "При API errors отделите authentication, authorization, admission, validation и etcd/control-plane availability.",
-          "Deployment → ReplicaSet → Pod — базовая цепочка.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Service не нашёл подходящих готовых Pod либо адреса ещё не опубликованы контроллером.",
+          "Service автоматически удалил namespace.",
+          "Все Pod обязательно работают на одном узле.",
+          "Ingress controller перестал читать TLS Secret.",
+          "etcd потерял резервную копию."
         ],
-        "answer": 4
+        "answer": 0
+      },
+      {
+        "question": "Какой порядок проверки разумен при 502 от Gateway?",
+        "options": [
+          "Проверить маршрут и backend reference, Service, EndpointSlice, readiness Pod и затем логи прокси.",
+          "Сразу изменить версию Kubernetes.",
+          "Удалить все HTTPRoute.",
+          "Выключить TLS на Gateway.",
+          "Пересоздать etcd cluster."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Почему пустой результат команды kubectl get не всегда означает, что объекта не существует?",
+        "options": [
+          "Можно смотреть другой namespace, cluster context или не иметь права list для нужного ресурса.",
+          "Kubernetes никогда не хранит пустые списки.",
+          "Пустой вывод автоматически означает отказ CNI.",
+          "kubectl не умеет выбирать namespace.",
+          "Все объекты должны быть cluster-scoped."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Чем полезна проверка generation и observedGeneration?",
+        "options": [
+          "Она показывает, обработал ли контроллер именно последнюю версию spec, а не просто существует ли объект.",
+          "Она измеряет размер Docker image.",
+          "Она заменяет audit log API server.",
+          "Она определяет IP-адрес Pod.",
+          "Она применяется только к ConfigMap."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Почему нельзя лечить 403 от Kubernetes API выдачей cluster-admin?",
+        "options": [
+          "403 требует проверки identity, verb, resource и scope; избыточные права маскируют ошибку и повышают риск.",
+          "403 всегда означает сетевую ошибку CNI.",
+          "cluster-admin не даёт доступ к API.",
+          "RBAC не влияет на запросы kubectl.",
+          "403 исправляется только рестартом kubelet."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Что должно быть результатом завершённого инцидента?",
+        "options": [
+          "Подтверждённая причина, восстановленный пользовательский путь, зафиксированные факты и меры против повторения.",
+          "Только удалённый Pod с ошибкой.",
+          "Только новая версия Helm chart.",
+          "Скриншот одной команды kubectl get.",
+          "Отключённый alert без объяснения."
+        ],
+        "answer": 0
       }
     ]
   },
   "23": {
-    "title": "Kubernetes: подробный учебный материал — GitOps, Helm и поставки Kubernetes-приложений",
+    "title": "Поставка в Kubernetes: GitOps, Helm, secrets и rollback",
     "questions": [
       {
-        "question": "Что необходимо понимать о Декларативный источник истины?",
+        "question": "Что означает декларативный источник истины для Kubernetes?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Chart параметризует шаблоны Kubernetes.",
-          "Pipeline проверяет YAML/render, schema, policy, image digest, tests и diff.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "GitOps хранит желаемое состояние в Git, а контроллер в кластере сравнивает его с API и согласует изменения."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Какой принцип важен для Декларативный источник истины?",
-        "options": [
-          "Откат — это новая декларация к известной версии, но rollback приложения может быть несовместим с миграцией данных.",
-          "Pipeline проверяет YAML/render, schema, policy, image digest, tests и diff.",
-          "Окружения отличаются явными параметрами, а не копиями шаблонов с ручными правками.",
-          "Chart параметризует шаблоны Kubernetes.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Какую задачу решает Helm?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Chart параметризует шаблоны Kubernetes.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "GitOps хранит желаемое состояние в Git, а контроллер в кластере сравнивает его с API и согласует изменения.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 1
-      },
-      {
-        "question": "Какое ограничение нужно учитывать у Helm?",
-        "options": [
-          "Откат — это новая декларация к известной версии, но rollback приложения может быть несовместим с миграцией данных.",
-          "Окружения отличаются явными параметрами, а не копиями шаблонов с ручными правками.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Chart параметризует шаблоны Kubernetes.",
-          "GitOps хранит желаемое состояние в Git, а контроллер в кластере сравнивает его с API и согласует изменения."
-        ],
-        "answer": 2
-      },
-      {
-        "question": "Что необходимо понимать о Поставка?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Chart параметризует шаблоны Kubernetes.",
-          "Pipeline проверяет YAML/render, schema, policy, image digest, tests и diff."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Какой принцип важен для Поставка?",
-        "options": [
-          "Окружения отличаются явными параметрами, а не копиями шаблонов с ручными правками.",
-          "Chart параметризует шаблоны Kubernetes.",
-          "Откат — это новая декларация к известной версии, но rollback приложения может быть несовместим с миграцией данных.",
-          "GitOps хранит желаемое состояние в Git, а контроллер в кластере сравнивает его с API и согласует изменения.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Какой риск нужно учитывать при Secrets и окружения?",
-        "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "GitOps хранит желаемое состояние в Git, а контроллер в кластере сравнивает его с API и согласует изменения.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Окружения отличаются явными параметрами, а не копиями шаблонов с ручными правками.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 3
-      },
-      {
-        "question": "Какое правило применяют для Secrets и окружения?",
-        "options": [
-          "Pipeline проверяет YAML/render, schema, policy, image digest, tests и diff.",
-          "Окружения отличаются явными параметрами, а не копиями шаблонов с ручными правками.",
-          "Откат — это новая декларация к известной версии, но rollback приложения может быть несовместим с миграцией данных.",
-          "GitOps хранит желаемое состояние в Git, а контроллер в кластере сравнивает его с API и согласует изменения.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
-        ],
-        "answer": 4
-      },
-      {
-        "question": "Что необходимо понимать о Rollback?",
-        "options": [
-          "Откат — это новая декларация к известной версии, но rollback приложения может быть несовместим с миграцией данных.",
-          "GitOps хранит желаемое состояние в Git, а контроллер в кластере сравнивает его с API и согласует изменения.",
-          "Pipeline проверяет YAML/render, schema, policy, image digest, tests и diff.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Окружения отличаются явными параметрами, а не копиями шаблонов с ручными правками."
+          "Желаемое состояние хранится в проверяемой конфигурации, а контроллер приводит кластер к нему.",
+          "Все изменения делаются только kubectl edit в production.",
+          "Kubernetes сам придумывает конфигурацию приложения.",
+          "В Git хранятся только логи Pod.",
+          "Источник истины — последний IP-адрес Pod."
         ],
         "answer": 0
       },
       {
-        "question": "Какой принцип важен для Rollback?",
+        "question": "Зачем GitOps-контроллер регулярно сравнивает Git и кластер?",
         "options": [
-          "Откат — это новая декларация к известной версии, но rollback приложения может быть несовместим с миграцией данных.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "GitOps хранит желаемое состояние в Git, а контроллер в кластере сравнивает его с API и согласует изменения.",
-          "Pipeline проверяет YAML/render, schema, policy, image digest, tests и diff.",
-          "Окружения отличаются явными параметрами, а не копиями шаблонов с ручными правками."
+          "Чтобы обнаруживать drift и возвращать фактическое состояние к согласованной декларации.",
+          "Чтобы автоматически удалять все Secret.",
+          "Чтобы kubelet скачивал образы без registry.",
+          "Чтобы выключить RBAC.",
+          "Чтобы назначить всем Pod одну node."
         ],
-        "answer": 1
+        "answer": 0
+      },
+      {
+        "question": "Какую роль выполняет Helm chart?",
+        "options": [
+          "Шаблонизирует и упаковывает связанные Kubernetes-ресурсы с параметрами установки.",
+          "Заменяет API server и etcd.",
+          "Является контейнерным runtime.",
+          "Создаёт CNI-сеть между кластерами.",
+          "Хранит runtime-логи приложений."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Почему values Helm не следует считать защищённым хранилищем секретов?",
+        "options": [
+          "Секретное значение может попасть в Git, историю release или вывод инструментов; нужен управляемый способ доставки secrets.",
+          "Helm не умеет создавать ConfigMap.",
+          "Values всегда зашифрованы Kubernetes по умолчанию.",
+          "Helm values доступны только kubelet.",
+          "Secret нельзя использовать в Pod."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Что нужно проверить перед promotion артефакта в production?",
+        "options": [
+          "Неизменяемый образ или digest, результаты проверок, совместимость конфигурации и план отката.",
+          "Только название Git branch.",
+          "Только число комментариев в chart.",
+          "Только свободное место в etcd.",
+          "Только возраст namespace."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Почему ручное изменение ресурса может исчезнуть после GitOps sync?",
+        "options": [
+          "Контроллер видит расхождение с декларацией и восстанавливает описанное в Git состояние.",
+          "Kubernetes не хранит ручные изменения.",
+          "Service автоматически пересоздаёт Deployment.",
+          "CNI удаляет все labels.",
+          "Helm запрещает kubectl commands."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Что необходимо включить в план rollback релиза с миграцией базы данных?",
+        "options": [
+          "Проверку обратимости схемы и данных: откат шаблона Pod сам по себе миграцию не отменяет.",
+          "Только удаление ReplicaSet.",
+          "Только изменение Service type.",
+          "Только рестарт node.",
+          "Только создание нового namespace."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Почему provenance образа важна для поставки?",
+        "options": [
+          "Она связывает развернутый digest с проверенной сборкой, исходным кодом и результатами CI.",
+          "Она выдаёт Pod постоянный IP.",
+          "Она заменяет NetworkPolicy.",
+          "Она увеличивает число replicas.",
+          "Она отключает admission policy."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Как безопаснее передавать конфигурацию, различающуюся между окружениями?",
+        "options": [
+          "Явно разделять параметры окружений и проверять итоговые манифесты до применения.",
+          "Копировать production Secret в тестовый namespace.",
+          "Использовать тег latest для каждого окружения.",
+          "Править уже работающие Pod вручную.",
+          "Отключить server-side validation."
+        ],
+        "answer": 0
+      },
+      {
+        "question": "Какой признак подтверждает успешную поставку?",
+        "options": [
+          "Ожидаемая версия работает по пользовательскому пути, conditions в норме и наблюдаемость не показывает регрессию.",
+          "Helm command завершилась без проверки кластера.",
+          "В Git создан новый tag.",
+          "В namespace существует хотя бы один Pod.",
+          "kubectl показывает любой Service."
+        ],
+        "answer": 0
       }
     ]
   },
   "24": {
-    "title": "Kubernetes: подробный учебный материал — Итоговый production-проект: проектирование Kubernetes-платформы и приложения",
+    "title": "Итоговая архитектура Kubernetes-платформы",
     "questions": [
       {
-        "question": "Что необходимо понимать о Исходная архитектура?",
+        "question": "Почему Service должен быть границей доступа к репликам приложения?",
         "options": [
-          "Platform team управляет GatewayClass, listeners, certificates, CNI, StorageClass, RBAC baseline и observability.",
-          "Спроектируйте сервис с несколькими репликами, Service, storage при необходимости, CNI и default-deny NetworkPolicy, Gateway API edge и observability.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Примените least privilege для ServiceAccount/RBAC, restricted pod security, подписанные/сканированные образы, Secrets из управляемого источника, NetworkPolicy и TLS.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Он даёт устойчивое DNS-имя и выбирает готовые Pod, IP которых могут меняться.",
+          "Он закрепляет Pod на одной node.",
+          "Он хранит контейнерные образы.",
+          "Он заменяет liveness probe.",
+          "Он автоматически создаёт PVC."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
-        "question": "Какой принцип важен для Исходная архитектура?",
+        "question": "Какой принцип уменьшает риск прав доступа в Kubernetes?",
         "options": [
-          "Определите SLO и проверяемый пользовательский индикатор.",
-          "Приёмка завершена, когда документация описывает topology, CIDR, CNI/Gateway implementation, flow policies, backup/restore, upgrade и incident runbook; pipeline воспроизводит deployment; тесты подтверждают разрешённый и запрещённый трафик, TLS и rollback.",
-          "Примените least privilege для ServiceAccount/RBAC, restricted pod security, подписанные/сканированные образы, Secrets из управляемого источника, NetworkPolicy и TLS.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Platform team управляет GatewayClass, listeners, certificates, CNI, StorageClass, RBAC baseline и observability."
+          "Выдавать identity только минимально необходимые verbs, resources и scope по принципу least privilege.",
+          "Выдавать cluster-admin каждому ServiceAccount.",
+          "Использовать один общий kubeconfig для всех команд.",
+          "Отключить audit log.",
+          "Хранить токены в ConfigMap."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
-        "question": "Какую задачу решает Платформенные границы?",
+        "question": "Почему requests важны для надёжности workload?",
         "options": [
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Platform team управляет GatewayClass, listeners, certificates, CNI, StorageClass, RBAC baseline и observability.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Спроектируйте сервис с несколькими репликами, Service, storage при необходимости, CNI и default-deny NetworkPolicy, Gateway API edge и observability.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Scheduler использует их для размещения, а платформа получает предсказуемую reservation ресурсов.",
+          "Requests гарантируют, что приложение никогда не упадёт.",
+          "Requests заменяют limits и probes.",
+          "Requests задают DNS Service.",
+          "Requests запрещают обновление Deployment."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
-        "question": "Какое ограничение нужно учитывать у Платформенные границы?",
+        "question": "Какой риск создаёт отсутствие resource limits там, где они необходимы?",
         "options": [
-          "Определите SLO и проверяемый пользовательский индикатор.",
-          "Platform team управляет GatewayClass, listeners, certificates, CNI, StorageClass, RBAC baseline и observability.",
-          "Спроектируйте сервис с несколькими репликами, Service, storage при необходимости, CNI и default-deny NetworkPolicy, Gateway API edge и observability.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Примените least privilege для ServiceAccount/RBAC, restricted pod security, подписанные/сканированные образы, Secrets из управляемого источника, NetworkPolicy и TLS."
+          "Один процесс может потреблять чрезмерные ресурсы узла и ухудшать работу соседних workload.",
+          "Pod обязательно получит постоянный IP.",
+          "Service перестанет выбирать labels.",
+          "etcd перестанет принимать API-объекты.",
+          "Ingress станет TCPRoute."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
-        "question": "Что необходимо понимать о Надёжность?",
+        "question": "Как разделять ответственность между приложением и платформой?",
         "options": [
-          "Примените least privilege для ServiceAccount/RBAC, restricted pod security, подписанные/сканированные образы, Secrets из управляемого источника, NetworkPolicy и TLS.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Спроектируйте сервис с несколькими репликами, Service, storage при необходимости, CNI и default-deny NetworkPolicy, Gateway API edge и observability.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Определите SLO и проверяемый пользовательский индикатор."
+          "Платформа обеспечивает безопасные стандартные границы, а приложение определяет корректность своей логики, probes и данных.",
+          "Платформа должна автоматически исправлять любой бизнес-код.",
+          "Приложение должно управлять etcd напрямую.",
+          "Никто не отвечает за мониторинг.",
+          "Все команды должны использовать один namespace."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Какой принцип важен для Надёжность?",
+        "question": "Что означает отказоустойчивость по failure domains?",
         "options": [
-          "Приёмка завершена, когда документация описывает topology, CIDR, CNI/Gateway implementation, flow policies, backup/restore, upgrade и incident runbook; pipeline воспроизводит deployment; тесты подтверждают разрешённый и запрещённый трафик, TLS и rollback.",
-          "Спроектируйте сервис с несколькими репликами, Service, storage при необходимости, CNI и default-deny NetworkPolicy, Gateway API edge и observability.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Platform team управляет GatewayClass, listeners, certificates, CNI, StorageClass, RBAC baseline и observability.",
-          "Примените least privilege для ServiceAccount/RBAC, restricted pod security, подписанные/сканированные образы, Secrets из управляемого источника, NetworkPolicy и TLS."
+          "Реплики и критичные компоненты распределены так, чтобы один отказ домена не остановил сервис целиком.",
+          "Все Pod запускаются на одном самом мощном узле.",
+          "Каждый контейнер получает отдельный кластер.",
+          "Service создаёт вторую копию etcd.",
+          "Ingress отключает DNS."
         ],
-        "answer": 2
+        "answer": 0
       },
       {
-        "question": "Какой риск нужно учитывать при Безопасность?",
+        "question": "Почему NetworkPolicy не является полной моделью безопасности?",
         "options": [
-          "Спроектируйте сервис с несколькими репликами, Service, storage при необходимости, CNI и default-deny NetworkPolicy, Gateway API edge и observability.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Примените least privilege для ServiceAccount/RBAC, restricted pod security, подписанные/сканированные образы, Secrets из управляемого источника, NetworkPolicy и TLS.",
-          "Приёмка завершена, когда документация описывает topology, CIDR, CNI/Gateway implementation, flow policies, backup/restore, upgrade и incident runbook; pipeline воспроизводит deployment; тесты подтверждают разрешённый и запрещённый трафик, TLS и rollback."
+          "Она регулирует сетевые потоки, но не заменяет RBAC, admission, безопасность образов и управление secrets.",
+          "Она автоматически шифрует все диски.",
+          "Она хранит резервные копии etcd.",
+          "Она выдаёт TLS-сертификаты.",
+          "Она заменяет ServiceAccount."
         ],
-        "answer": 3
+        "answer": 0
       },
       {
-        "question": "Какое правило применяют для Безопасность?",
+        "question": "Какая проверка важна при приёмке новой платформенной функции?",
         "options": [
-          "Определите SLO и проверяемый пользовательский индикатор.",
-          "Приёмка завершена, когда документация описывает topology, CIDR, CNI/Gateway implementation, flow policies, backup/restore, upgrade и incident runbook; pipeline воспроизводит deployment; тесты подтверждают разрешённый и запрещённый трафик, TLS и rollback.",
-          "Platform team управляет GatewayClass, listeners, certificates, CNI, StorageClass, RBAC baseline и observability.",
-          "Примените least privilege для ServiceAccount/RBAC, restricted pod security, подписанные/сканированные образы, Secrets из управляемого источника, NetworkPolicy и TLS.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Проверить ожидаемый пользовательский путь, отказной сценарий, наблюдаемость и обратимость изменения.",
+          "Проверить только, что YAML синтаксически верен.",
+          "Проверить только версию kubectl.",
+          "Удалить старые alerts перед тестом.",
+          "Проверить количество комментариев в Git."
         ],
-        "answer": 4
+        "answer": 0
       },
       {
-        "question": "Что необходимо понимать о Приёмка?",
+        "question": "Зачем фиксировать архитектурные решения и их ограничения?",
         "options": [
-          "Platform team управляет GatewayClass, listeners, certificates, CNI, StorageClass, RBAC baseline и observability.",
-          "Приёмка завершена, когда документация описывает topology, CIDR, CNI/Gateway implementation, flow policies, backup/restore, upgrade и incident runbook; pipeline воспроизводит deployment; тесты подтверждают разрешённый и запрещённый трафик, TLS и rollback.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл."
+          "Чтобы следующий инженер понимал контекст, границы применимости и последствия изменения решения.",
+          "Чтобы Kubernetes быстрее запускал контейнеры.",
+          "Чтобы скрыть Secrets в Git history.",
+          "Чтобы заменить runbook списком labels.",
+          "Чтобы не проводить review изменений."
         ],
-        "answer": 1
+        "answer": 0
       },
       {
-        "question": "Какой принцип важен для Приёмка?",
+        "question": "Какой итоговый критерий зрелой Kubernetes-платформы?",
         "options": [
-          "Спроектируйте сервис с несколькими репликами, Service, storage при необходимости, CNI и default-deny NetworkPolicy, Gateway API edge и observability.",
-          "Platform team управляет GatewayClass, listeners, certificates, CNI, StorageClass, RBAC baseline и observability.",
-          "Приёмка завершена, когда документация описывает topology, CIDR, CNI/Gateway implementation, flow policies, backup/restore, upgrade и incident runbook; pipeline воспроизводит deployment; тесты подтверждают разрешённый и запрещённый трафик, TLS и rollback.",
-          "Изучайте ресурс через Kubernetes API, а не как отдельный YAML-файл.",
-          "Примените least privilege для ServiceAccount/RBAC, restricted pod security, подписанные/сканированные образы, Secrets из управляемого источника, NetworkPolicy и TLS."
+          "Изменения воспроизводимы, безопасно наблюдаемы, имеют владельцев и проверяемый путь восстановления.",
+          "В кластере используется максимальное число CRD.",
+          "Все приложения имеют один Docker image.",
+          "Нет ни одного события Kubernetes.",
+          "Каждый Pod работает без Service."
         ],
-        "answer": 3
+        "answer": 0
       }
     ]
   }
